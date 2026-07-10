@@ -31,6 +31,12 @@ Ao escolher, **leia o arquivo de referência do estilo** antes de desenhar: ele 
 
 Se a peça não se encaixa em nenhuma linha da tabela, escolha o polo (light ou dark) pelo contexto do produto e aplique as regras globais abaixo. Elas são o DNA; os estilos são temperos.
 
+### Regra anti-cópia: técnica, não conteúdo
+
+As "fichas dos posts originais" dentro de cada `references/<estilo>.md` (a seção "Referências visuais", com handle, paleta observada e "vale roubar") são **citação e evidência** por trás dos Tokens do estilo, nunca um post a ser recriado. O William manda dezenas de carrosséis e reels pra ensinar a skill a fazer ESSE TIPO de design, misturando o que aparece nelas no estilo próprio dele. O objetivo nunca é reproduzir a capa, a copy, o produto fictício ou o layout exato de um post específico.
+
+Isso vale em dobro pra qualquer exemplo, demo ou prova de capacidade que a própria skill produza (README, showcase, pitch pra terceiros): **extraia a técnica** (a receita de motion, o componente, a composição) e **aplique a um cenário real e original**, nunca "recrie a referência com nome trocado". Se o post de origem mostrou um botão de upload com barra de progresso, a prova de capacidade não é remontar aquele upload, é usar a MESMA técnica (estado idle → progresso → sucesso, `pathLength`, easing certo) num componente novo, ligado a um produto ou contexto real, de preferência já com o código de `references/componentes-premium.md` / `references/motion*.md` por trás. Código > screenshot estático: sempre que o objetivo for demonstrar uma técnica de motion/interação, prefira uma prova animada (GIF, vídeo, página viva) a uma imagem parada, e mostre o trecho de código relevante junto.
+
 ## Antes de desenhar: alinhe o estilo com o William
 
 Essa skill vai cobrir cada vez mais formato: SaaS, captura, venda, ecommerce, e o que mais aparecer. A tabela acima cobre os casos mais comuns, mas não é exaustiva, e o pior erro nesses casos novos é decidir sozinho e só aparecer com o resultado pronto no final. Regra: **narre a escolha antes de desenhar, não só depois.**

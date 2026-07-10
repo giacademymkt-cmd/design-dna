@@ -2,7 +2,7 @@
 
 ![design-dna](assets/banner.png)
 
-**Skill do [Claude Code](https://claude.com/claude-code)** com o DNA de design pessoal do William: 7 registros visuais, 18 livros de receita, regras de qualidade e anti-slop, prontos pra qualquer agente desenhar peças premium sem precisar de direção manual.
+**Skill do [Claude Code](https://claude.com/claude-code)** com o DNA de design pessoal do William: 7 registros visuais, 19 componentes de código real (motion, estados, acessibilidade), regras de qualidade e anti-slop, prontos pra qualquer agente desenhar peças premium sem precisar de direção manual.
 
 </div>
 
@@ -31,9 +31,79 @@ Depois de instalado, a skill é acionada automaticamente sempre que o pedido env
 
 ---
 
+## Componentes vivos
+
+Os carrosséis e reels que o William manda pra skill não são pra recriar a capa ou o produto fictício do post: são pra ela aprender a **técnica** por trás (o motion, o estado, o timing) e devolver essa técnica como código reaproveitável, aplicado num contexto real e original, misturando o que aprendeu no estilo dele. É a regra anti-cópia do `SKILL.md`.
+
+Os 6 GIFs abaixo são prova disso: cada um roda o código real de `references/componentes-premium.md`, capturado em vídeo de verdade (Playwright gravando a interação, sem crédito de geração de imagem gasto), aplicado num componente novo que não existe em nenhuma referência.
+
+<table>
+<tr><td width="50%" align="center">
+
+![Botão Assinatura](assets/components/button.gif)
+
+**Botão Assinatura**
+<br><sub>idle → progresso → checkmark que se desenha (`pathLength`, sem largura variando)</sub>
+
+</td><td width="50%" align="center">
+
+![Anel de Foco Premium](assets/components/focus.gif)
+
+**Anel de Foco Premium**
+<br><sub>anel duplo em `box-shadow`, só em `:focus-visible`, nunca em clique de mouse</sub>
+
+</td></tr>
+<tr><td width="50%" align="center">
+
+![Esqueleto Espelho](assets/components/skeleton.gif)
+
+**Esqueleto Espelho**
+<br><sub>placeholder na forma exata do conteúdo final, shimmer de dois tons, nunca arco-íris</sub>
+
+</td><td width="50%" align="center">
+
+![Toast Empilhado](assets/components/toast.gif)
+
+**Toast Empilhado (estilo Sonner)**
+<br><sub>pilha com profundidade, expande no hover/foco, sem `@keyframes` (por isso não "pula")</sub>
+
+</td></tr>
+<tr><td width="50%" align="center">
+
+![Anel de Spotlight na Borda](assets/components/spotlight.gif)
+
+**Anel de Spotlight na Borda**
+<br><sub>`mask-composite` acende só a borda perto do cursor, sem iluminar o campo inteiro</sub>
+
+</td><td width="50%" align="center">
+
+![Bento Grid Animado](assets/components/bento.gif)
+
+**Bento Grid Animado**
+<br><sub>cascata de entrada por `IntersectionObserver`, pesos desiguais, nunca 3 cards clones</sub>
+
+</td></tr>
+</table>
+
+```css
+/* trecho real do Botão Assinatura, references/componentes-premium.md */
+.btn[data-state="success"] .btn-check__circle {
+  animation: desenhar 500ms cubic-bezier(.65,0,.35,1) forwards;
+}
+.btn[data-state="success"] .btn-check__mark {
+  /* delay maior que a duração do círculo, senão os dois desenham
+     juntos e perde a leitura de confirmação em duas etapas */
+  animation: desenhar 350ms cubic-bezier(.34,1.56,.64,1) 450ms forwards;
+}
+```
+
+Cada receita completa (HTML + CSS + JS, fonte citada, armadilhas documentadas, variante Framer Motion) está em `references/componentes-premium.md`, junto com outras 13 no mesmo padrão: contador numérico, barra de progresso via `scroll()`, validação inline, blur-up de imagem, marquee de logos, feed cíclico, grade presa com zoom de scroll e mais.
+
+---
+
 ## Os 7 registros visuais
 
-Cada peça usa **um estilo por vez**, escolhido pela tabela de decisão do `SKILL.md`. As imagens abaixo são demos reais renderizadas a partir das regras de cada estilo (paleta, tipografia, componente assinatura), não mockups genéricos.
+Cada peça usa **um estilo por vez**, escolhido pela tabela de decisão do `SKILL.md`. As imagens abaixo mostram paleta, tipografia e composição de cada registro, não conteúdo pra copiar: a "ficha" de cada post de referência dentro de `references/<estilo>.md` existe como citação por trás do token, nunca como layout a recriar (ver a regra anti-cópia no `SKILL.md`).
 
 <table>
 <tr><td width="50%">
@@ -193,7 +263,8 @@ O William rejeita explicitamente o uniforme de página genérica de IA. Reprovam
 
 ```
 SKILL.md                  # porta de entrada: direção, tabela de estilos, regras globais, checklist
-assets/                    # banner + demos visuais de cada um dos 7 estilos (este README)
+assets/                    # banner + demos visuais dos 7 estilos (este README)
+  └─ components/            # GIFs dos componentes vivos, gravados de componentes-premium.md
 references/                # 18 livros de receita, lidos sob demanda conforme a peça
   ├─ apple-premium.md, dark-ui-lab.md, soft-neumorphism-light.md,
   │  editorial-minimal-mockup.md, app-flow-showcase.md,
