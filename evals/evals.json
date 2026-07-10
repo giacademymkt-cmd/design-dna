@@ -1,0 +1,74 @@
+{
+  "skill_name": "design-dna",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "lp-saas-fintech",
+      "prompt": "cria uma landing page pra um SaaS de gestão financeira pra pequenas empresas chamado FluxoCerto. precisa ter hero, 3 features, uma faixa de prova social e pricing com 2 planos (Essencial R$97/mês e Pro R$197/mês). capricha no design, quero coisa premium. entrega um HTML único pronto pra eu subir no servidor",
+      "expected_output": "HTML único autocontido, estilo editorial-minimal-mockup: base off-white, cards bento super-arredondados, um acento (lime/neon) usado como sinal, herói flutuante com sombra difusa, hierarquia por cor, CTA com estados, responsivo, zero travessão, zero slop (sem badge acima do headline, sem grid de fundo, features sem três cards idênticos)",
+      "files": [],
+      "assertions": [
+        "HTML autocontido: sem <img src=http externo e sem scripts de CDN (única exceção permitida: Google Fonts)",
+        "Zero caractere de travessão (—) em qualquer texto do arquivo",
+        "Base neutra off-white do DNA (fundo geral em tom #ECECEE/#EDECEA/#F4F4F2 ou muito próximo), não branco puro nem cinza médio",
+        "Ênfase do título do hero feita por cor: pelo menos uma palavra do headline envolta em span/classe com cor de acento",
+        "CTA com estados de interação: regras :hover e :active (ou equivalente JS) para os botões principais",
+        "Responsivo: meta viewport presente + pelo menos uma media query",
+        "Disciplina de acento: uma única família de cor vibrante de destaque na peça (grader avalia o CSS e a renderização)",
+        "Nenhum badge/chip/pill decorativo acima do headline do hero",
+        "Seção de features NÃO é três cards idênticos icon-título-texto: há variação de peso/tamanho (bento) ou um card protagonista"
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "pagina-download-app",
+      "prompt": "faz a página de download do meu app desktop de organização de arquivos (chama Kanvo, tem versão Mac e Windows). o botão de download precisa ter aquela microinteração completa: clica, vira barra de progresso e termina num checkmark de sucesso. quero a página completa, HTML único pronto pra subir",
+      "expected_output": "Página web real de download (não post social): hero com o app como objeto desejável, botão de download com state machine idle → progresso → checkmark transferida do DNA pra contexto de produto real, um acento disciplinado, base neutra do polo escolhido, zero slop, responsiva, zero travessão",
+      "files": [],
+      "assertions": [
+        "É uma página web completa (nav ou marca + hero + pelo menos mais uma seção), não um frame 9:16 de post social",
+        "Animação funcional do botão de download em JS/CSS: estado idle, progresso e finalização com checkmark",
+        "Oferece as duas plataformas (Mac e Windows) de forma clara",
+        "Nenhum badge/chip/pill decorativo acima do headline do hero",
+        "Sem grid quadriculado/dot-grid como textura de fundo",
+        "Um único acento vibrante na peça, usado com disciplina",
+        "Responsivo: meta viewport presente + pelo menos uma media query",
+        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "secao-dark-glass-features",
+      "prompt": "faz uma seção dark de features pra página do meu produto de automação de anúncios (chama AdPilot), com 3 cards em glassmorphism e um bloco comparativo antes vs depois. HTML único",
+      "expected_output": "HTML estilo dark-ui-lab: fundo quase-preto LISO (sem grid), cards glass translúcidos (backdrop-filter) com pesos variados, UM acento luminoso (teal/menta), rótulos pill pro comparativo (tipo BROKEN vs SAFE), respiro generoso, hover states nos cards, zero badge acima do headline, zero travessão",
+      "files": [],
+      "assertions": [
+        "Fundo quase-preto do DNA (na faixa #0A0C0F a #161A1F), não cinza escuro médio",
+        "Fundo LISO: sem grid quadriculado/dot-grid cobrindo o background (vinheta sutil, gradiente direcional único ou noise fino são aceitáveis)",
+        "Nenhum badge/chip/pill decorativo acima do headline da seção",
+        "Glassmorphism real nos 3 cards: backdrop-filter blur com fundo translúcido",
+        "Um único acento luminoso (teal/menta/azul) usado com disciplina em CTA/dados",
+        "Bloco comparativo antes vs depois com rótulos estilo pill em caps",
+        "Estados hover nos cards (transform/borda/glow ao passar o mouse)",
+        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "pagina-produto-apple-premium",
+      "prompt": "quero uma página de apresentação pro meu app de finanças pessoais (chama Lume) num estilo bem apple sabe, extremamente refinado, minimalista e premium, tipo página de produto da apple. HTML único",
+      "expected_output": "Página estilo apple-premium: tipografia protagonista (headlines grandes com tracking negativo), base branco/#F5F5F7/#1D1D1F, um único acento discreto (azul tipo #0071E3), seções-capítulo com respiro vertical imenso, CTA pill, link 'Saiba mais >' com chevron, frases curtas declarativas, reveal sutil no scroll sem bounce, zero slop, zero travessão",
+      "files": [],
+      "assertions": [
+        "Tipografia protagonista: headline principal com font-weight >= 600 e letter-spacing negativo",
+        "Paleta contida: base neutra (branco/#F5F5F7/#1D1D1F ou tons equivalentes) com no máximo UMA cor de acento discreta na página inteira",
+        "Respiro de luxo: padding vertical das seções >= 96px no desktop",
+        "CTA em formato pill (border-radius alto) preenchido, sem botão ghost pareado por reflexo",
+        "Nenhum badge/chip/pill decorativo acima do headline; sem grid de fundo; sem orbs/gradiente decorativo roxo-azul",
+        "Copy declarativa: headline do hero com no máximo 8 palavras",
+        "Reveal sutil no scroll (IntersectionObserver ou CSS) com easing suave, sem spring/bounce",
+        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      ]
+    }
+  ]
+}
