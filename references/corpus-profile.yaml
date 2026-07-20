@@ -1,0 +1,53 @@
+version: 1
+observed_at: 2026-07-10
+purpose: coverage profile for the external local reference corpus
+rights: reference-only; provenance known by handle but redistribution rights not verified
+portable: false
+
+resolution:
+  env: DESIGN_DNA_REFERENCE_ROOT
+  sibling_fallback: ../referencias-instagram/por-estilo
+
+totals:
+  files: 73
+  jpg: 64
+  mp4: 9
+  approximate_megabytes: 35.2
+
+coverage:
+  app-flow-showcase:
+    files: 2
+    sources: 2
+    confidence: low
+  dark-ui-lab:
+    files: 8
+    sources: 2
+    confidence: medium
+  dev-carousel-explainer:
+    files: 5
+    sources: 1
+    confidence: low
+  dev-tutorial-code-showcase:
+    files: 4
+    sources: 4
+    media_note: video-only
+    confidence: medium
+  editorial-minimal-mockup:
+    files: 32
+    sources: 3
+    confidence: high_but_dominant
+  soft-neumorphism-light:
+    files: 22
+    sources: 3
+    confidence: high_but_dominant
+  apple-premium:
+    files: 0
+    sources: 0
+    fallback: packaged preview plus textual reference
+    confidence: curated_knowledge_not_local_corpus
+
+bias_notes:
+  - Editorial and soft-light represent most files and must not become global defaults by frequency.
+  - App-flow and carousel have few independent sources; treat their rules as hypotheses when a new case diverges.
+  - Apple-contained has no external local corpus and should remain a separately curated module.
+  - Video-only lots require frame or motion inspection; do not pretend they are still images.

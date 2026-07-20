@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+.design-dna/
+dist/
+design-dna-workspace/

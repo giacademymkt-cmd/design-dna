@@ -2,40 +2,98 @@
 
 ![design-dna](assets/banner.png)
 
-**Skill do [Claude Code](https://claude.com/claude-code)** com o DNA de design pessoal do William: 7 registros visuais, 19 componentes de código real (motion, estados, acessibilidade), regras de qualidade e anti-slop, prontos pra qualquer agente desenhar peças premium sem precisar de direção manual.
+# Design DNA v2
+
+Direção visual pessoal do William como um sistema de decisão: estética, composição, função, referências curadas e QA versionado.
 
 </div>
 
-## O que é isto
+## O que mudou na V2
 
-Não é um gerador genérico de LP. É um sistema de gosto, destilado da leitura de referências que o William curou (rondesignlab, iconlypro, code.xr e outras fontes de UI premium). Qualquer peça nova, seja landing page, dashboard, componente, post de social ou criativo de anúncio, deve sair como se tivesse vindo da mesma prancheta.
+A versão original já melhorava muito a aderência visual: no benchmark controlado mais completo, passou de 56,56% sem skill para 90,79% com skill. A V2 preserva esse repertório e corrige os limites que apareceram na prática:
 
-`SKILL.md` é o ponto de entrada e já traz tudo mastigado pra qualquer agente: direção geral, tabela de escolha de estilo, ritual de alinhamento antes de desenhar, modo Glow Up (pra melhorar site existente), regras globais, mapa da biblioteca de receitas e checklist final antes de entregar. Um agente que carregue essa skill não precisa de contexto adicional pra saber o que fazer.
+- separa **direção estética**, **formato** e **pacote funcional**;
+- remove dependência de caminho absoluto para o corpus local;
+- formaliza exceções de cor para status, código, dados e marcas multicoloridas;
+- bloqueia o problema residual mais recorrente: gradiente multicolorido em texto;
+- cobre web, React, interface, social, carrossel, motion, direção e auditoria;
+- carrega só as referências necessárias;
+- adiciona validadores, gates de qualidade e novos casos de regressão/generalização.
 
-## Instalar no Claude Code
+O nome instalado continua `design-dna`. “V2” descreve a arquitetura, não cria uma skill concorrente com outro trigger.
 
-Clone o repositório dentro da pasta de skills:
+## Sumário
+
+- [O sistema em três eixos](#o-sistema-em-três-eixos)
+- [Modos](#modos)
+- [Instalação local](#instalação-local)
+- [Uso](#uso)
+- [Componentes vivos](#componentes-vivos)
+- [Direções estéticas](#direções-estéticas)
+- [Formatos](#formatos)
+- [Biblioteca por progressive disclosure](#biblioteca-por-progressive-disclosure)
+- [Corpus local de referência](#corpus-local-de-referência)
+- [Validadores](#validadores)
+- [Avaliação](#avaliação)
+- [Estrutura](#estrutura)
+
+## O sistema em três eixos
+
+| Eixo | Opções | Decide |
+|---|---|---|
+| Estética | `soft-light`, `dark-technical`, `apple-contained`, `editorial-signal` | Base, materiais, tipografia e contenção |
+| Formato | `product-flow`, `demo-code`, `explainer-carousel` | Proporção, sequência e composição |
+| Função | página, LP longa, ecommerce, UX, componente, motion | Conteúdo, conversão, comportamento e QA |
+
+Exemplos:
+
+- um app flow pode ser `product-flow + soft-light`;
+- um tutorial pode ser `demo-code + dark-technical`;
+- um carrossel técnico pode usar `explainer-carousel + editorial-signal`;
+- uma landing page pode usar apenas `editorial-signal + página`.
+
+Isso evita o problema da taxonomia anterior, em que formatos e estéticas competiam como se fossem sete estilos equivalentes.
+
+## Modos
+
+- `build`: cria e valida uma peça nova;
+- `glow-up`: diagnostica, preserva, implementa e compara um redesign;
+- `audit`: revisa sem editar;
+- `concept`: prova uma direção com menor custo;
+- `ingest`: aprende com novas referências sem copiar conteúdo.
+
+## Instalação local
+
+Durante o desenvolvimento, use a pasta V2 diretamente. Para instalar uma cópia no runtime do agente:
 
 ```bash
-git clone https://github.com/giacademymkt-cmd/design-dna.git ~/.claude/skills/design-dna
+# Codex e agentes compatíveis
+cp -R /caminho/para/design-dna-v2 ~/.agents/skills/design-dna
+
+# Claude Code
+cp -R /caminho/para/design-dna-v2 ~/.claude/skills/design-dna
 ```
 
-Ou, se preferir manter o repositório em outro lugar e só linkar:
+Não renomeie o diretório instalado para `design-dna-v2`; o frontmatter e o nome canônico permanecem `design-dna`.
 
-```bash
-git clone https://github.com/giacademymkt-cmd/design-dna.git ~/algum-lugar/design-dna
-ln -s ~/algum-lugar/design-dna ~/.claude/skills/design-dna
+## Uso
+
+A skill deve acionar automaticamente em pedidos como:
+
+```text
+cria uma LP premium para esse produto
+faz um glow up nessa página sem mudar a marca
+quero um dashboard no meu estilo
+monta um carrossel educativo com antes e depois
+audita o visual desse app, mas não altera nada
+usa essas referências para alimentar meu design DNA
 ```
 
-Depois de instalado, a skill é acionada automaticamente sempre que o pedido envolver criar, desenhar, redesenhar ou melhorar (`glow up`) uma peça visual.
-
----
+Ao iniciar, ela declara uma direção curta e segue trabalhando. Só pede escolha quando alternativas mudarem materialmente custo, conteúdo ou arquitetura.
 
 ## Componentes vivos
 
-Os carrosséis e reels que o William manda pra skill não são pra recriar a capa ou o produto fictício do post: são pra ela aprender a **técnica** por trás (o motion, o estado, o timing) e devolver essa técnica como código reaproveitável, aplicado num contexto real e original, misturando o que aprendeu no estilo dele. É a regra anti-cópia do `SKILL.md`.
-
-Os 6 GIFs abaixo são prova disso: cada um roda o código real de `references/componentes-premium.md`, capturado em vídeo de verdade (Playwright gravando a interação, sem crédito de geração de imagem gasto), aplicado num componente novo que não existe em nenhuma referência.
+As referências ensinam técnica, não conteúdo. Os seis GIFs abaixo demonstram padrões aplicados em cenários originais; as receitas completas ficam em `references/componentes-premium.md` e o roteamento curto em `references/component-gallery.md`.
 
 <table>
 <tr><td width="50%" align="center">
@@ -43,14 +101,14 @@ Os 6 GIFs abaixo são prova disso: cada um roda o código real de `references/co
 ![Botão Assinatura](assets/components/button.gif)
 
 **Botão Assinatura**
-<br><sub>idle → progresso → checkmark que se desenha (`pathLength`, sem largura variando)</sub>
+<br><sub>idle → progresso → checkmark desenhado</sub>
 
 </td><td width="50%" align="center">
 
 ![Anel de Foco Premium](assets/components/focus.gif)
 
 **Anel de Foco Premium**
-<br><sub>anel duplo em `box-shadow`, só em `:focus-visible`, nunca em clique de mouse</sub>
+<br><sub>anel duplo em `:focus-visible`</sub>
 
 </td></tr>
 <tr><td width="50%" align="center">
@@ -58,224 +116,226 @@ Os 6 GIFs abaixo são prova disso: cada um roda o código real de `references/co
 ![Esqueleto Espelho](assets/components/skeleton.gif)
 
 **Esqueleto Espelho**
-<br><sub>placeholder na forma exata do conteúdo final, shimmer de dois tons, nunca arco-íris</sub>
+<br><sub>loading na geometria do conteúdo final</sub>
 
 </td><td width="50%" align="center">
 
 ![Toast Empilhado](assets/components/toast.gif)
 
-**Toast Empilhado (estilo Sonner)**
-<br><sub>pilha com profundidade, expande no hover/foco, sem `@keyframes` (por isso não "pula")</sub>
+**Toast Empilhado**
+<br><sub>profundidade, hover e foco acessível</sub>
 
 </td></tr>
 <tr><td width="50%" align="center">
 
-![Anel de Spotlight na Borda](assets/components/spotlight.gif)
+![Spotlight de Borda](assets/components/spotlight.gif)
 
-**Anel de Spotlight na Borda**
-<br><sub>`mask-composite` acende só a borda perto do cursor, sem iluminar o campo inteiro</sub>
+**Spotlight de Borda**
+<br><sub>luz local sem contaminar a superfície</sub>
 
 </td><td width="50%" align="center">
 
-![Bento Grid Animado](assets/components/bento.gif)
+![Bento Animado](assets/components/bento.gif)
 
-**Bento Grid Animado**
-<br><sub>cascata de entrada por `IntersectionObserver`, pesos desiguais, nunca 3 cards clones</sub>
+**Bento Animado**
+<br><sub>pesos reais e entrada escalonada</sub>
 
 </td></tr>
 </table>
 
-```css
-/* trecho real do Botão Assinatura, references/componentes-premium.md */
-.btn[data-state="success"] .btn-check__circle {
-  animation: desenhar 500ms cubic-bezier(.65,0,.35,1) forwards;
-}
-.btn[data-state="success"] .btn-check__mark {
-  /* delay maior que a duração do círculo, senão os dois desenham
-     juntos e perde a leitura de confirmação em duas etapas */
-  animation: desenhar 350ms cubic-bezier(.34,1.56,.64,1) 450ms forwards;
-}
+## Direções estéticas
+
+<table>
+<tr><td width="50%">
+
+### `soft-light`
+
+![Soft Light](assets/style-light.png)
+
+Base off-white, superfícies táteis, sombra dupla suave e um acento operacional.
+
+</td><td width="50%">
+
+### `dark-technical`
+
+![Dark Technical](assets/style-dark.png)
+
+Base quase-preta lisa, superfícies discretas, glass localizado e acento luminoso.
+
+</td></tr>
+<tr><td width="50%">
+
+### `apple-contained`
+
+![Apple Contained](assets/style-apple.png)
+
+Tipografia protagonista, capítulos amplos, produto como herói e extrema contenção.
+
+</td><td width="50%">
+
+### `editorial-signal`
+
+![Editorial Signal](assets/style-editorial.png)
+
+Grid editorial, dados como narrativa, mockup cinematográfico e cor como sinal.
+
+</td></tr>
+</table>
+
+## Formatos
+
+<table>
+<tr><td width="33%">
+
+### `product-flow`
+
+![Product Flow](assets/style-appflow.png)
+
+Jornada de app em 2 ou 3 telas.
+
+</td><td width="33%">
+
+### `demo-code`
+
+![Demo Code](assets/style-devtutorial.png)
+
+Resultado vivo e técnica na mesma peça.
+
+</td><td width="33%">
+
+### `explainer-carousel`
+
+![Explainer Carousel](assets/style-carousel.png)
+
+Sequência educativa, comparativo e prova com código.
+
+</td></tr>
+</table>
+
+## Biblioteca por progressive disclosure
+
+`references/INDEX.md` é o roteador. O agente lê uma direção, opcionalmente um formato e só os pacotes funcionais necessários.
+
+| Grupo | Conteúdo |
+|---|---|
+| Estrutura | heroes, seções, pricing, prova, footer e LP longa |
+| Conversão | copy, objeções, persuasão ética e ecommerce |
+| Interface | UX, acessibilidade, formulários, estados e componentes |
+| Motion | princípios, scroll, texto, cursor e fallbacks |
+| Processo | gates de qualidade, ingestão e registro canônico |
+
+Livros grandes têm índice e devem ser abertos pela seção relevante. `references/componentes-premium.md`, por exemplo, não precisa ser carregado inteiro para implementar um único focus ring.
+
+## Cor com exceções explícitas
+
+“Um acento” agora significa uma família operacional dominante, não a proibição cega de toda cor adicional:
+
+- `accent`: CTA, seleção e sinal visual;
+- `status`: erro, sucesso, alerta e info, sempre locais;
+- `syntax`: multicolor permitido dentro de código;
+- `data`: escala adicional quando a interpretação exigir;
+- `brand`: cores reais da marca, com uma eleita para interação.
+
+Gradiente azul-roxo-rosa em texto continua proibido por padrão. Foi a regressão mais consistente dos benchmarks da V1.
+
+## Corpus local de referência
+
+O repositório não redistribui automaticamente os 35,2 MB de mídia de terceiros. A resolução é portátil:
+
+1. caminho fornecido pelo usuário;
+2. `DESIGN_DNA_REFERENCE_ROOT`;
+3. pasta irmã `../referencias-instagram/por-estilo/`;
+4. previews empacotados.
+
+```bash
+export DESIGN_DNA_REFERENCE_ROOT="/caminho/para/por-estilo"
+python3 scripts/reference_manifest.py
 ```
 
-Cada receita completa (HTML + CSS + JS, fonte citada, armadilhas documentadas, variante Framer Motion) está em `references/componentes-premium.md`, junto com outras 13 no mesmo padrão: contador numérico, barra de progresso via `scroll()`, validação inline, blur-up de imagem, marquee de logos, feed cíclico, grade presa com zoom de scroll e mais.
+`references/corpus-profile.yaml` registra cobertura e vieses: editorial e soft-light dominam o corpus; Apple não tem lote externo e usa conhecimento curado + preview empacotado.
 
----
+## Validadores
 
-## Os 7 registros visuais
+### Integridade da skill
 
-Cada peça usa **um estilo por vez**, escolhido pela tabela de decisão do `SKILL.md`. As imagens abaixo mostram paleta, tipografia e composição de cada registro, não conteúdo pra copiar: a "ficha" de cada post de referência dentro de `references/<estilo>.md` existe como citação por trás do token, nunca como layout a recriar (ver a regra anti-cópia no `SKILL.md`).
+```bash
+python3 scripts/doctor.py .
+```
 
-<table>
-<tr><td width="50%">
+Valida frontmatter, tamanho do `SKILL.md`, links, caminhos absolutos, code fences, índices e schema das evals.
 
-![Soft Neumorphism Light](assets/style-light.png)
+### Preflight de output web
 
-</td><td width="50%">
+```bash
+python3 scripts/preflight.py caminho/para/index.html
+python3 scripts/preflight.py caminho/para/index.html --json
+```
 
-![Dark UI Lab](assets/style-dark.png)
+Procura regressões como travessão, metadata ausente, imagem sem alt, motion sem reduced-motion, falta de foco, badge reflexo, fundo genérico e gradiente multicolorido em texto. É uma heurística; o render e o julgamento visual continuam obrigatórios em produção.
 
-</td></tr>
-<tr><td>
+## Gates de qualidade
 
-### 1 · `soft-neumorphism-light`
-Mockup de app mobile e SaaS claro: base off-white `#ECECEE`, cards brancos flutuando com sombra dupla difusa, acento único por peça (azul, verde, coral ou violeta), tudo dentro de um "palco" tracejado.
+`references/quality-gates.md` cobre:
 
-**Quando usar:** telas de app mobile (settings, navegação, perfil), bibliotecas de ícones/componentes, produto SaaS em light mode tátil.
+- intenção e conteúdo;
+- coerência visual;
+- anti-slop e originalidade;
+- responsividade;
+- acessibilidade e interação;
+- comportamento e performance;
+- entrega e limites reais da verificação.
 
-</td><td>
+## Avaliação
 
-### 2 · `dark-ui-lab`
-Estética de dev-tool sobre fundo quase-preto `#0A0C0F`/`#111111`, superfícies elevadas `#161A1F`, glass translúcido, ícones 3D de vidro fosco e acentos vibrantes pontuais (teal `#2BD9B4`, azul, magenta). Microinteração como assinatura: o Botão Assinatura (idle → progresso → checkmark).
+A suíte histórica tinha quatro prompts HTML e 33 critérios. A V2 mantém esses casos para comparação e acrescenta casos de regressão/generalização para:
 
-**Quando usar:** demo de dev-tool, showcase de componentes, dashboard premium noturno, comparativo bom vs ruim.
+- Glow Up com preservação de conteúdo e comportamento;
+- ecommerce;
+- marca com status semântico;
+- React;
+- motion acessível;
+- peça social em SVG.
 
-</td></tr>
-</table>
+Esses casos são públicos e, portanto, não são holdouts secretos. O workspace de execução registra outputs, grades e viewer fora do pacote instalável; modelo, commit e ambiente precisam ser informados para uma reprodução completa.
 
-<table>
-<tr><td width="50%">
+### Smoke test V1 x V2
 
-![Apple Premium](assets/style-apple.png)
+Em 10 de julho de 2026, quatro casos novos foram executados uma vez em cada versão. A V2 passou 33/33 expectativas e a V1 passou 32/33; a única diferença objetiva foi um overline decorativo antes do H1 na V1. Isso confirma paridade funcional e a aplicação dos novos gates, mas não prova superioridade visual geral: a V1 permaneceu mais expressiva em alguns renders. Consulte `evals/RESULTS.md` para escopo, limitações e leitura correta.
 
-</td><td width="50%">
+O workspace de benchmark fica fora da skill. Assim, evidência de avaliação não infla o pacote instalado.
 
-![Editorial Minimal + Mockup Cinematográfico](assets/style-editorial.png)
+`evals/trigger-evals.json` acrescenta 20 casos de precisão do trigger, incluindo near-misses de debugging, iOS/Apple técnico, performance sem mudança visual, texto puro e design system já fechado.
 
-</td></tr>
-<tr><td>
-
-### 3 · `apple-premium`
-Refinamento extremo inspirado na linguagem de design da Apple. Contenção total: tipografia gigante e precisa (`-apple-system`), respiro generoso, alternância `#FFFFFF`/`#F5F5F7`, um único acento `#0071E3`, CTA pill, zero decoração que não carregue informação.
-
-**Quando usar:** página de produto high-end, LP institucional, "estilo apple", o grau mais alto de sofisticação.
-
-</td><td>
-
-### 4 · `editorial-minimal-mockup`
-Assinatura do rondesignlab: case de produto editorial premium. Grid suíço arejado, cards bento super-arredondados, gradiente aurora/mesh quente dentro de superfícies claras, acento neon/lime `#D9F500` usado sempre como sinal de dado, nunca decoração.
-
-**Quando usar:** case study de produto/portfólio, LP de SaaS B2B, healthtech/fintech, showcase de UI com aura cinematográfica.
-
-</td></tr>
-</table>
-
-<table>
-<tr><td width="50%">
-
-![Dev Tutorial: Demo + Código](assets/style-devtutorial.png)
-
-</td><td width="50%">
-
-![Showcase de Fluxo de App](assets/style-appflow.png)
-
-</td></tr>
-<tr><td>
-
-### 5 · `dev-tutorial-code-showcase`
-Formato dominante do code.xr: componente de UI real animado flutuando em cima sobre fundo claro, janela de editor de código estilo macOS embaixo com syntax highlight multicolor. Ensina o resultado e o "como" na mesma tela.
-
-**Quando usar:** conteúdo educativo de dev/design pra Reels e carrosséis, documentação de design system, prova de microinteração com código real.
-
-</td><td>
-
-### 6 · `app-flow-showcase`
-Formato de portfólio de UI/UX mobile: 2 a 3 mockups de celular lado a lado contando uma jornada completa (onboarding, home, detalhe/checkout) numa imagem só. Dois polos: light clean com acento azul único, ou dark quase-preto com acento saturado.
-
-**Quando usar:** apresentar um app mobile mostrando o fluxo completo, formato Dribbble/Behance, posts de produto sem depender de vídeo.
-
-</td></tr>
-</table>
-
-<table>
-<tr><td width="50%">
-
-![Carrossel Educativo Dev/Design](assets/style-carousel.png)
-
-</td><td width="50%">
-
-### 7 · `dev-carousel-explainer`
-Carrossel educativo quadrado: slides numerados com badge azul de progresso, comparações antes vs depois com pills semânticas vermelho/verde, janela de código estilo macOS com anotações, fundo creme `#F7F1E6` unificado do primeiro ao último slide.
-
-**Quando usar:** explicar um conceito de UX/dev em passos (problema, causa, solução, código, benefícios) num carrossel de Instagram, sem depender de vídeo.
-
-<br>
-
-> As regras que valem em **todos** os 7 registros: herói flutuante num palco limpo, hierarquia por cor (não por tamanho), um único acento por peça, base neutra, cantos generosos, microinteração como conteúdo, respiro generoso, zero travessão em qualquer texto.
-
-</td></tr>
-</table>
-
----
-
-## Biblioteca de receitas
-
-Além dos 7 registros visuais, a skill tem 11 livros de receita verificados, lidos **sob demanda** conforme a peça pedida. Destilados das melhores fontes do mundo em motion/visual (Emil Kowalski, Rauno Freiberg, Josh Comeau, Olivier Larose, Codrops, Cassie Evans, dissecação de Linear/Vercel/Stripe/Raycast/Apple) e em conversão/venda (Ogilvy, Cialdini, Kahneman, Baymard Institute, Nielsen Norman Group).
-
-| Situação | Arquivo |
-|---|---|
-| Antes de animar qualquer coisa: regras de gosto (easing, duração, contenção, acessibilidade) | `references/motion-principios.md` |
-| Peça com narrativa de scroll: reveals, parallax, pin, trilho horizontal | `references/motion-scroll.md` |
-| Headline animada, palavra de destaque, hover de card/botão, spotlight | `references/motion-texto-cursor.md` |
-| CTA com estados, formulário, contadores, toasts, loading, bento | `references/componentes-premium.md` |
-| Estrutura de LP/página: hero, prova social, pricing, footer, empty state | `references/secoes-premium.md` |
-| Headline, descrição de produto, CTA, prova social, qualquer copy de venda | `references/copywriting-conversao.md` |
-| Escassez/urgência, prova social, ancoragem de preço, dark patterns proibidos | `references/vies-cognitivo-persuasao.md` |
-| PDP, carrinho, checkout, categoria (PLP) de ecommerce | `references/ecommerce-especialista.md` |
-| Navegação, formulário, catálogo, acessibilidade, mobile-first | `references/ux-interface-principios.md` |
-| LP de venda longa: infoproduto, curso, stack de oferta, bônus, garantia, FAQ | `references/lp-venda-longa.md` |
-| Receita base de springs e microinteração (legado curto) | `references/motion.md` |
-
-**Regra que não se negocia:** os 5 livros de conversão/ecommerce/UX são leitura obrigatória antes de desenhar qualquer PDP, carrinho, checkout, categoria ou LP de venda. **Mecânica de conversão vence estética.**
-
-## Modo Glow Up
-
-A skill não serve só pra criar do zero: é o diretor de arte pra elevar uma página existente com a bagagem instalada. Gatilhos: "melhorar", "dar um glow up", "upar o design", "modernizar", "auditar o visual". Fluxo: ver o site de verdade (nunca diagnosticar de memória) → diagnóstico com três lentes (anti-slop, oportunidades da biblioteca, estrutura) → relatório priorizado → mostrar, não descrever (reconstrói a seção de maior impacto com o conteúdo real, antes vs depois) → identidade da marca é sagrada → página ao vivo é intocável sem aprovação.
-
-## Anti-slop: proibido por padrão
-
-O William rejeita explicitamente o uniforme de página genérica de IA. Reprovam a peça mesmo com todo o resto certo:
-
-- Badge/chip/pill decorativo acima do headline
-- Grid quadriculado ou dot-grid cobrindo o fundo
-- Gradiente roxo-azul e orbs/blobs de glow nos cantos
-- Emoji como ícone de feature
-- Três cards idênticos ícone-título-texto
-- Copy inflada ("Potencialize", "Revolucione", "Eleve seu negócio")
-- Glass genérico repetido em tudo
-- Hero centralizado com dois botões por reflexo (primário + ghost sem segunda ação real)
-- Travessão (—) em qualquer texto, título ou legenda
-
-## Checklist antes de entregar
-
-- [ ] Um único acento vibrante? (conte os acentos, sério)
-- [ ] Herói flutuando com sombra difusa num palco limpo?
-- [ ] Ênfase do título feita por cor/peso, não por tamanho gigante?
-- [ ] CTA com estados de interação funcionando?
-- [ ] Zero travessão em qualquer texto?
-- [ ] Zero badge/pill acima do headline, zero grid genérico, zero orb de gradiente?
-- [ ] Copy concreta, sem palavras de hype?
-- [ ] Responsivo (mobile primeiro nas LPs)?
-- [ ] Parece um objeto desejável que alguém salvaria?
-
----
+Duas classificações independentes do frontmatter acertaram 20/20 casos. Esse resultado valida a redação contra a suíte pública, mas não substitui medição do roteador real em produção.
 
 ## Estrutura
 
-```
-SKILL.md                  # porta de entrada: direção, tabela de estilos, regras globais, checklist
-assets/                    # banner + demos visuais dos 7 estilos (este README)
-  └─ components/            # GIFs dos componentes vivos, gravados de componentes-premium.md
-references/                # 18 livros de receita, lidos sob demanda conforme a peça
-  ├─ apple-premium.md, dark-ui-lab.md, soft-neumorphism-light.md,
-  │  editorial-minimal-mockup.md, app-flow-showcase.md,
-  │  dev-tutorial-code-showcase.md, dev-carousel-explainer.md    → 7 estilos visuais
-  ├─ motion*.md, componentes-premium.md, secoes-premium.md       → motion e componentes
-  ├─ copywriting-conversao.md, vies-cognitivo-persuasao.md,
-  │  ecommerce-especialista.md, ux-interface-principios.md,
-  │  lp-venda-longa.md                                           → conversão e venda
-evals/evals.json           # suite de avaliação da skill (prompts + asserções automáticas)
+```text
+design-dna-v2/
+├── SKILL.md
+├── README.md
+├── CHANGELOG.md
+├── assets/
+│   ├── components/
+│   └── style-*.png
+├── docs/
+│   └── V2-ARCHITECTURE.md
+├── evals/
+├── references/
+│   ├── INDEX.md
+│   ├── design-registry.yaml
+│   ├── quality-gates.md
+│   └── ...
+├── scripts/
+│   ├── doctor.py
+│   ├── preflight.py
+│   └── reference_manifest.py
+└── tests/
 ```
 
-## Uso
+## Segurança operacional
 
-Repositório de uso interno da equipe. Conteúdo reflete decisões de gosto e regras de negócio específicas do William; use como referência, não como padrão genérico de mercado.
+- A skill não publica nem faz deploy por conta própria.
+- O modo `audit` é somente leitura.
+- O corpus externo é referência interna quando direitos não estão verificados.
+- A regra anti-cópia vale para código, imagem, copy, produto e sequência narrativa.

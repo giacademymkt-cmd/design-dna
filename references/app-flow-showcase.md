@@ -14,7 +14,7 @@ Formato de portfolio de UI/UX mobile: 2-3 mockups de celular lado a lado sobre f
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/app-flow-showcase/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `app-flow-showcase/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Quando a fidelidade importar, inspecione 1 ou 2 itens antes de desenhar.
 
 ### 01: @uiux.amina (pasta `01__uiux.amina__092370`)
 

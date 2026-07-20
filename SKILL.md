@@ -1,133 +1,201 @@
 ---
 name: design-dna
-description: DNA de design pessoal do William, destilado de referências visuais curadas (rondesignlab, iconlypro, code.xr e outros). Use SEMPRE que o William pedir para criar, desenhar ou redesenhar qualquer peça visual: landing page, LP, página, seção, hero, componente, card, dashboard, mockup, peça para Instagram/social, criativo de anúncio, ou quando disser "no meu estilo", "estilo premium", "capricha no design", "estilo apple", "bem refinado". Use TAMBÉM quando ele pedir pra MELHORAR um site/página que já existe: "melhorar", "dar um glow up", "upar o design", "modernizar", "deixar premium", "auditar o visual" (modo Glow Up: diagnóstico visual com a bagagem + amostras antes/depois). Também use quando um pedido de página ou componente não especificar direção visual nenhuma, pois este é o padrão visual dele. Define estilos, paletas hex, tipografia, layout, motion e regras de qualidade.
+description: >-
+  Sistema de direção visual pessoal do William para criar, redesenhar, auditar ou refinar peças digitais premium. Use quando houver intenção visual explícita em pedidos de landing page, LP, site, seção, hero, dashboard, interface de app, componente visual, mockup, ecommerce, criativo de anúncio, post, carrossel, Reel, "no meu estilo", "capricha no design", "premium", "glow up", modernização ou auditoria visual. Use também quando ele pedir uma nova interface sem direção estética, pois este é o padrão visual dele. A skill decide estética, composição e função; aplica referências sem copiar; e valida coerência, conversão, acessibilidade, responsividade e motion. Não acione só porque aparecem as palavras app, componente, Apple ou premium: ignore correção lógica, debugging, performance sem mudança visual, implementação iOS/Apple técnica, texto puro, edição fotográfica isolada sem direção visual e tarefas com sistema visual explicitamente fechado.
 ---
 
-# Design DNA — William
+# Design DNA v2
 
-Este é o sistema visual pessoal do William, destilado da leitura de referências que ele curou. O objetivo não é imitar um post específico, é projetar QUALQUER peça nova como se tivesse saído da mesma prancheta.
+Transforme intenção em uma peça reconhecível como do William: clara, contida, funcional e com um momento visual memorável. O objetivo não é aplicar uma skin. É tomar decisões coerentes de hierarquia, composição, cor, tipografia, conteúdo e comportamento.
 
-## A direção (leia isto primeiro)
+## Ordem de precedência
 
-UI premium, tátil e didática. Interfaces limpas de SaaS/fintech/dev-tool com respiro generoso, cantos bem arredondados, UM acento de cor cirúrgico por peça e microinterações bem resolvidas. A biblioteca oscila entre dois polos coerentes: o **light minimal-neumórfico** e o **dark glass-tech**, unidos pela mesma obsessão: transformar componentes de interface em objetos desejáveis, cinematográficos e salváveis. Há ainda um terceiro registro sob demanda, o **apple-premium**: refinamento extremo, tipografia protagonista e contenção total, pra quando o William pedir "estilo apple" ou o máximo de sofisticação.
+Quando regras colidirem, resolva nesta ordem:
 
-## Escolha o estilo (1 por peça)
+1. Pedido explícito, marca e assets reais do usuário.
+2. Acessibilidade, legibilidade, veracidade e integridade da interação.
+3. Objetivo funcional, conteúdo e conversão.
+4. Direção estética e formato selecionados.
+5. Defaults globais desta skill.
 
-| Peça pedida | Estilo | Referência |
+Nunca sacrifique clareza, função ou identidade de marca para obedecer a um truque visual da biblioteca.
+
+## Compatibilidade e composição com outras skills
+
+Esta skill é dona das decisões visuais, não de todo meio de produção. Combine-a com a ferramenta ou skill especializada quando a entrega exigir frontend, imagem raster, vídeo, slides, PDF ou canvas. A skill especializada controla o formato e a implementação; a Design DNA fornece direção, tokens, composição e gates. Se o usuário já escolheu um design system fechado, preserve-o e use a Design DNA apenas para decisões que não o contradigam.
+
+O filesystem é necessário para projetos locais. Python 3 habilita os validadores em `scripts/`. Browser ou renderizador melhora o QA; sem ele, faça inspeção de código e declare o limite.
+
+## Escolha o modo de trabalho
+
+| Modo | Quando | Profundidade padrão |
 |---|---|---|
-| Conteúdo educativo dev/design, demo + código, Reels/carrossel de componente | `dev-tutorial-code-showcase` | `references/dev-tutorial-code-showcase.md` |
-| LP de SaaS B2B / fintech / healthtech, case de produto, portfólio premium | `editorial-minimal-mockup` | `references/editorial-minimal-mockup.md` |
-| SaaS / dashboard / app de produtividade (tela de produto, não marketing) | `soft-neumorphism-light` (claro) ou `dark-ui-lab` (escuro) conforme o produto | ambas |
-| Mockup de app mobile, biblioteca de ícones/componentes, série light-mode | `soft-neumorphism-light` | `references/soft-neumorphism-light.md` |
-| Demo de dev-tool, tutorial de ferramenta, comparativo bom vs ruim, dark premium | `dark-ui-lab` | `references/dark-ui-lab.md` |
-| Página de produto high-end, LP institucional, "estilo apple", refinamento máximo | `apple-premium` | `references/apple-premium.md` |
-| Showcase de app mobile: fluxo em 2-3 mockups de celular lado a lado (portfólio, post de produto) | `app-flow-showcase` | `references/app-flow-showcase.md` |
-| Carrossel educativo dev/design: slides numerados, antes vs depois semântico, código anotado | `dev-carousel-explainer` | `references/dev-carousel-explainer.md` |
-| Landing page de captura (troca por email/contato, isca digital, pré-lançamento) | `editorial-minimal-mockup` (confiança, sem escassez agressiva) | `references/editorial-minimal-mockup.md` |
-| Página de produto de ecommerce (PDP: 1 produto, fotos, comprar) | `apple-premium` se o produto for o herói; `editorial-minimal-mockup` se for catálogo com preço/prova social mais denso | ambas |
-| LP de venda longa (infoproduto, curso, oferta com prova social pesada, bônus, garantia) | Escolha o polo visual (light ou dark) pelo produto, e siga a anatomia estrutural completa | `references/lp-venda-longa.md` |
+| `build` | Criar uma peça nova | Produção completa, com render e QA quando possível |
+| `glow-up` | Melhorar algo existente | Diagnosticar, preservar o que funciona, implementar e comparar |
+| `audit` | Revisar sem pedido de alteração | Somente leitura; evidências e prioridades, sem mutação |
+| `concept` | Rascunho rápido, direção ou primeiras opções | Um registro estético e no máximo uma receita funcional |
+| `ingest` | Aprender com novas referências | Extrair decisões, registrar proveniência e atualizar a biblioteca sem copiar |
 
-Ao escolher, **leia o arquivo de referência do estilo** antes de desenhar: ele traz paleta com papéis, tipografia, layout e as fichas dos posts originais. Se a fidelidade importa (o William pediu "igual às referências"), leia também 1-2 imagens da biblioteca em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/<estilo>/` com a ferramenta Read.
+Se o usuário não disser o modo, use `build` para algo novo e `glow-up` para algo existente. Não interrompa o fluxo para confirmar uma escolha reversível: declare a direção em uma atualização curta e prossiga. Peça decisão apenas quando duas direções mudarem materialmente custo, conteúdo ou arquitetura.
 
-Se a peça não se encaixa em nenhuma linha da tabela, escolha o polo (light ou dark) pelo contexto do produto e aplique as regras globais abaixo. Elas são o DNA; os estilos são temperos.
+## Roteie em três eixos
 
-### Regra anti-cópia: técnica, não conteúdo
+Não trate formato e estética como a mesma coisa. Selecione um item por eixo quando ele for relevante.
 
-As "fichas dos posts originais" dentro de cada `references/<estilo>.md` (a seção "Referências visuais", com handle, paleta observada e "vale roubar") são **citação e evidência** por trás dos Tokens do estilo, nunca um post a ser recriado. O William manda dezenas de carrosséis e reels pra ensinar a skill a fazer ESSE TIPO de design, misturando o que aparece nelas no estilo próprio dele. O objetivo nunca é reproduzir a capa, a copy, o produto fictício ou o layout exato de um post específico.
+### Eixo A: direção estética
 
-Isso vale em dobro pra qualquer exemplo, demo ou prova de capacidade que a própria skill produza (README, showcase, pitch pra terceiros): **extraia a técnica** (a receita de motion, o componente, a composição) e **aplique a um cenário real e original**, nunca "recrie a referência com nome trocado". Se o post de origem mostrou um botão de upload com barra de progresso, a prova de capacidade não é remontar aquele upload, é usar a MESMA técnica (estado idle → progresso → sucesso, `pathLength`, easing certo) num componente novo, ligado a um produto ou contexto real, de preferência já com o código de `references/componentes-premium.md` / `references/motion*.md` por trás. Código > screenshot estático: sempre que o objetivo for demonstrar uma técnica de motion/interação, prefira uma prova animada (GIF, vídeo, página viva) a uma imagem parada, e mostre o trecho de código relevante junto.
+| Direção | Melhor uso | Referência obrigatória |
+|---|---|---|
+| `soft-light` | SaaS claro, app amigável, UI tátil, biblioteca de componentes | `references/soft-neumorphism-light.md` |
+| `dark-technical` | Dev-tool, automação, dashboard, produto técnico noturno | `references/dark-ui-lab.md` |
+| `apple-contained` | Página de produto com refinamento máximo e extrema contenção | `references/apple-premium.md` |
+| `editorial-signal` | SaaS B2B, fintech, healthtech, case e portfólio com dados | `references/editorial-minimal-mockup.md` |
 
-## Antes de desenhar: alinhe o estilo com o William
+### Eixo B: formato e composição
 
-Essa skill vai cobrir cada vez mais formato: SaaS, captura, venda, ecommerce, e o que mais aparecer. A tabela acima cobre os casos mais comuns, mas não é exaustiva, e o pior erro nesses casos novos é decidir sozinho e só aparecer com o resultado pronto no final. Regra: **narre a escolha antes de desenhar, não só depois.**
+| Formato | Melhor uso | Referência obrigatória |
+|---|---|---|
+| `product-flow` | Jornada de app em 2 ou 3 telas, onboarding, UI/UX mobile | `references/app-flow-showcase.md` |
+| `demo-code` | Resultado vivo + código, tutorial, Reel técnico | `references/dev-tutorial-code-showcase.md` |
+| `explainer-carousel` | Carrossel educativo, antes/depois, passo a passo | `references/dev-carousel-explainer.md` |
 
-**Catálogo abstrato não funciona pra isso.** Já tentamos montar uma galeria de referência com swatches/vinhetas pequenas fora de contexto e o William rejeitou: ninguém decide direção de site olhando card de exemplo genérico. O que decide é ver a HERO REAL do projeto dele, com o nome e a copy verdadeira, em tamanho de verdade. Regra de ouro: **espera a ideia concreta chegar primeiro, só depois construa opções, e construa sempre com o conteúdo real do projeto, nunca com placeholder genérico.**
+Formatos herdam a direção estética selecionada. Um `product-flow` pode ser light ou dark. Syntax highlight e cores semânticas ficam confinados ao bloco que comunica código ou estado; eles não criam uma segunda identidade cromática para a peça.
 
-1. **Quando o estilo é óbvio** (bate 1 linha só da tabela, sem ambiguidade), diga o estilo/espécime escolhido e o porquê em 1-2 frases antes de escrever HTML, e siga direto pra peça completa. Ex: "Isso é uma LP de captura, vou de `editorial-minimal-mockup` porque pede confiança sem escassez agressiva."
-2. **Quando há ambiguidade real** (2+ estilos servem igual bem, a peça é de um formato novo/caro de refazer, ou o William pede pra ver opções), NÃO desenhe a peça inteira de primeira: construa **2 a 3 HEROES completos e reais** do projeto dele — mesmo nome de produto, mesma copy, mesmo objetivo — um em cada estilo/espécime candidato, empilhados numa página só (ou 2-3 arquivos separados) pra comparação lado a lado. Cada hero é a seção inteira (headline, CTA, palco do produto, motion), não um card de exemplo abstrato. Aí sim ele escolhe olhando pra o produto dele de verdade, e você continua construindo o resto da página só no estilo escolhido. Os arquivos `references/<estilo>.md` (paleta, tipografia, layout, vale roubar por post) são pra VOCÊ ler antes de construir cada hero, não pra mostrar ao William.
-3. **Para formatos que fogem da estética original** (checkout tradicional, ou qualquer coisa fora do que a biblioteca de receitas já cobre), avise antes de desenhar: esse DNA foi destilado de referência de SaaS/dev-tool/produto premium. LP de venda longa JÁ TEM anatomia própria em `references/lp-venda-longa.md`, não é mais um formato sem cobertura, mas ainda vale narrar que a régua de contenção visual do design-dna vai ser aplicada em cima da anatomia clássica de venda, não substituída por estética genérica de infoproduto.
-4. **Depois de entregar, convide o próximo passo.** Não encerre com só "pronto, tá aqui": diga o que testaria a seguir (outro estilo, outro acento, outra estrutura de prova social) e pergunte o que ele achou. É assim que a skill aprende o gosto dele peça a peça.
-5. **Exceção:** pedido pequeno e óbvio dentro de um estilo já em uso ("troca a cor desse botão", "ajusta esse padding") não precisa desse ritual inteiro, só a entrega normal.
+### Eixo C: pacote funcional
 
-## Glow Up: melhorar sites que já existem
+Leia somente o pacote necessário. Use `references/INDEX.md` quando a tarefa exigir mais de uma receita.
 
-A skill não serve só pra criar do zero: ela é o diretor de arte pra elevar página existente com a bagagem instalada. Gatilhos: "melhorar", "dar um glow up", "upar o design", "modernizar", "deixar premium", "auditar o visual". O foco é direção de arte, NÃO auditoria de desempenho/SEO: não traga Lighthouse, minificação ou tempo de carregamento a menos que o William peça.
-
-1. **Veja o site de verdade antes de opinar.** Página ao vivo: navegue com as ferramentas de browser e capture screenshots das seções (desktop e mobile). Código local: leia os arquivos E abra a página renderizada. Nunca diagnostique de memória nem só pelo HTML.
-2. **Diagnóstico com a bagagem, seção por seção, com três lentes:**
-   - **Anti-slop e regras globais:** o que na página denuncia template/genérico (badge acima de headline, grid de fundo, 3 cards clones, acentos competindo, copy inflada, hero sem palco, densidade sem respiro).
-   - **Oportunidades da biblioteca:** pra cada seção, qual receita elevaria o nível, citada PELO NOME (CTA morto vira Botão Assinatura; hero estático ganha Cortina de Texto; logos parados viram Marquee; número importante ganha Count-up; features clonadas viram bento com protagonista; footer bagunçado vira Grade Densa e Silenciosa; card importante ganha Spotlight). Leia os livros de receitas relevantes antes de sugerir.
-   - **Estrutura:** compare as seções com `secoes-premium.md`. Se for página de venda/ecommerce, os livros de conversão são obrigatórios aqui também: mecânica de conversão vence estética no glow up igual.
-3. **Relatório de glow up priorizado.** Lista do maior pro menor impacto visual, cada item com: o que muda, qual receita/princípio aplica, e o porquê em 1 frase. Direção de arte concreta, sem jargão.
-4. **Mostre, não descreva.** A entrega que o William espera é VISUAL: reconstrua a(s) seção(ões) de maior impacto com o conteúdo REAL da página (headline verdadeira, produto verdadeiro, marca verdadeira) e apresente antes vs depois lado a lado ou empilhado com rótulos, funcionando (motion incluso). O glow up da página inteira só depois que ele aprovar a direção na amostra.
-5. **Identidade da marca é sagrada.** Glow up não é trocar a marca pelo DNA: as cores da marca viram o acento único, a tipografia se adapta à hierarquia premium, o conteúdo permanece. O DNA entra como régua de execução (contenção, respiro, motion, anti-slop), não como uniforme.
-6. **Página ao vivo é intocável sem aprovação.** Melhoria em página que já está rodando e gerando resultado NUNCA sobe direto: amostra local primeiro, deploy só com ok explícito do William.
-
-## Regras globais (valem em todos os estilos)
-
-1. **Herói flutuante.** O objeto principal (componente, card, mockup) flutua isolado num "palco" arejado, com sombra difusa, sobre fundo neutro. Nunca cole o herói na borda nem o afogue em decoração: ele é o produto.
-2. **Hierarquia por cor e peso, não por tamanho.** Título com uma palavra no acento (magenta, coral, azul, lime) contra o resto quase-preto ou quase-branco. Isso cria ênfase sem inflar a tipografia.
-3. **Um acento por peça.** Escolha UM acento vibrante da paleta do estilo e use com disciplina: CTA, dado em destaque, palavra-chave. Acento é sinal, não decoração. Dois acentos competindo = peça reprovada. **Isso vale para gradientes de texto também**: um `background-clip:text` com 2-3 cores diferentes (tipo azul→roxo→rosa) conta como vários acentos, não um. Pra destacar uma palavra do headline, use o acento único em bloco sólido atrás do texto, nunca gradiente multi-cor.
-4. **Base neutra.** Light: off-white `#ECECEE`/`#EDECEA`/`#F4F4F2` com branco puro nos cards. Dark: quase-preto `#111111`/`#0A0C0F` com superfícies elevadas sutis `#161A1F`. Nunca cinza médio como fundo.
-5. **Cantos super-arredondados (squircle/pill)** e sombras suaves ou glass translúcido. A sensação é tátil: dá vontade de apertar.
-6. **Microinteração é conteúdo.** Botões e cards têm estados: idle → hover → loading/progresso → sucesso com checkmark. Se a peça tem CTA, o CTA tem comportamento. A peça-assinatura é o "Botão Assinatura" (morph de estados + checkmark que se desenha) em `references/componentes-premium.md`; springs base em `references/motion.md`.
-7. **Respiro generoso.** Densidade baixa, whitespace é material de construção. Na dúvida, tire elementos em vez de encolher.
-8. **Nunca use travessão (—)** em nenhum texto de copy, título ou legenda. Regra permanente do William. Use vírgula, dois-pontos ou reescreva.
-9. **Peça autocontida.** Sem CDN de imagem externa: construa visual com CSS, SVG inline e gradientes. Fontes via system stack ou Google Fonts (única exceção de rede permitida).
-
-## Biblioteca de receitas (leia sob demanda, conforme a peça)
-
-Além dos estilos, a skill tem livros de receitas verificadas, destiladas das melhores fontes do mundo: motion e visual de Emil Kowalski, Rauno Freiberg, Josh Comeau, Olivier Larose, Codrops, Cassie Evans, e dissecação ao vivo de Linear/Vercel/Stripe/Raycast/Apple; e, pra tudo que é conversão/venda de verdade (copy, persuasão, ecommerce, usabilidade), Ogilvy, Cialdini, Kahneman, Baymard Institute e Nielsen Norman Group. Todo código já foi revisado por verificador. Leia o que a peça pedir:
-
-| Situação | Arquivo |
+| Necessidade | Pacote mínimo |
 |---|---|
-| ANTES de animar qualquer coisa: regras de gosto (easing, duração, contenção, acessibilidade) | `references/motion-principios.md` |
-| Peça com narrativa de scroll: reveals, parallax, pin, trilho horizontal, capítulos | `references/motion-scroll.md` |
-| Headline com entrada animada, palavra de destaque, hover de card/botão, spotlight | `references/motion-texto-cursor.md` |
-| CTA com estados, formulário, números/contadores, toasts, loading, listas, bento | `references/componentes-premium.md` |
-| Montar a estrutura de uma LP/página: hero, prova social, pricing, footer, empty state | `references/secoes-premium.md` |
-| Receita base de springs e microinteração (legado curto) | `references/motion.md` |
-| Headline, descrição de produto, CTA, prova social ou qualquer copy que precisa vender, não só parecer bonita | `references/copywriting-conversao.md` |
-| Gatilho de escassez/urgência, prova social, ancoragem de preço, ou qualquer mecânica de persuasão — inclui a lista de dark patterns proibidos | `references/vies-cognitivo-persuasao.md` |
-| Página de produto (PDP), carrinho, checkout, categoria (PLP) de qualquer ecommerce | `references/ecommerce-especialista.md` |
-| Qualquer peça com decisão real do usuário (não só visual): navegação, formulário, catálogo, acessibilidade, mobile-first | `references/ux-interface-principios.md` |
-| LP de venda longa: infoproduto, curso, oferta de alto compromisso, com stack de oferta, bônus, garantia e FAQ | `references/lp-venda-longa.md` |
+| Página/LP curta | `references/secoes-premium.md` + `references/copywriting-conversao.md` |
+| LP longa de oferta | anterior + `references/lp-venda-longa.md` + `references/vies-cognitivo-persuasao.md` |
+| Ecommerce/PDP | `references/ecommerce-especialista.md` + `references/ux-interface-principios.md` |
+| Interface ou dashboard | `references/ux-interface-principios.md`; acrescente apenas as seções necessárias de `references/componentes-premium.md` |
+| Motion | `references/motion-principios.md` primeiro; depois `references/motion-scroll.md` ou `references/motion-texto-cursor.md` |
+| Componente interativo | `references/component-gallery.md`; então a receita específica em `references/componentes-premium.md` |
 
-**Regra que não se negocia pra peça de venda/ecommerce:** os 5 últimos livros acima são leitura OBRIGATÓRIA antes de desenhar qualquer PDP, carrinho, checkout, categoria, LP de venda ou LP de venda longa, não é opcional como o resto da biblioteca. Essa regra existe porque já aconteceu de errar: duas heroes visualmente perfeitas (paleta certa, tipografia certa, motion certo) foram rejeitadas por não terem nenhuma mecânica de venda, nenhum selo de confiança, nenhuma copy de benefício, nenhum seletor de variante, só "clima" bonito. **Mecânica de conversão vence estética.** Se o estilo visual escolhido pedir uma coisa e a pesquisa de conversão pedir outra, a conversão ganha, só que desenhada com a mesma disciplina visual do resto do sistema (nunca virando badge colorido genérico ou poluição visual).
+## Defina o contrato visual antes de implementar
 
-Regra de dose: as receitas marcadas como pontuais (scramble, jitter) entram no máximo 1 vez por página. Receita nunca dispensa os princípios: `motion-principios.md` governa tudo.
+Registre internamente, em poucas linhas:
 
-## Anti-slop: o que denuncia "cara de IA" (proibido por padrão)
+- objetivo e ação principal;
+- direção estética + formato + pacote funcional;
+- composição protagonista;
+- paleta por papéis e pares de contraste: `base`, `surface`, `text`, `muted`, `accent`, `accent-foreground`, `status.*`, `status.*-foreground` e `focus-ring`;
+- tipografia e escala;
+- componente assinatura;
+- orçamento de motion;
+- três coisas a evitar neste contexto.
 
-O William rejeita explicitamente o uniforme de página genérica de IA. Estes padrões reprovam a peça mesmo que todo o resto esteja certo:
+Compartilhe com o usuário apenas uma frase útil, por exemplo: “Vou seguir editorial-signal, base off-white, lima como sinal de dado e um mockup financeiro assimétrico como protagonista.” Não transforme isso numa reunião quando o pedido já estiver claro.
 
-1. **Badge/chip/pill decorativo acima do headline** ("Novo", "AI-powered", "v2.0"). No lugar: entre direto no headline. Se houver informação real de contexto, use um overline discreto em caps pequenas, sem caixa, sem borda, sem fundo.
-2. **Grid quadriculado ou dot-grid cobrindo o fundo.** É o papel de parede padrão de IA, mesmo que algumas referências originais usem grid técnico. No lugar: fundo liso com vinheta sutil, UM gradiente direcional de luz, ou noise fino a 2-3% de opacidade. Grid só se o William pedir, e ainda assim localizado num card ou palco, nunca na página inteira.
-3. **Gradiente roxo-azul e orbs/blobs de glow** espalhados pelos cantos. No lugar: o acento único do estilo aplicado em elementos concretos, não em névoa decorativa.
-4. **Emoji como ícone de feature.** No lugar: ícones SVG inline com stroke consistente.
-5. **Três cards idênticos icon-título-texto** como seção de features automática. No lugar: bento com pesos variados, um card protagonista, ou uma demo real do produto por feature.
-6. **Copy inflada** ("Potencialize", "Desbloqueie o poder", "Revolucione", "Eleve seu negócio"). No lugar: frases curtas e concretas sobre o que o produto faz de verdade.
-7. **Glass genérico repetido**: card translúcido com borda branca a 10% aplicado em tudo. Glass é material de destaque de UM elemento, não papel de parede.
-8. **Hero centralizado com dois botões (primário + ghost) por reflexo.** Segundo botão só se existir segunda ação real.
+## Fluxo de execução
 
-## Formato de saída
+1. **Inspecione a fonte de verdade.** Em projeto existente, leia stack, componentes, tokens, conteúdo e assets antes de propor mudança. Preserve funcionalidade e convenções locais.
+2. **Selecione os três eixos.** Escolha uma direção dominante. Uma técnica secundária é permitida; uma segunda paleta completa não é.
+3. **Carregue o mínimo necessário.** Leia a referência estética/formato escolhida e apenas as receitas funcionais que a peça realmente usa.
+4. **Estruture conteúdo e hierarquia.** Resolva narrativa, ação principal e ordem das seções antes de decorar.
+5. **Implemente a peça real.** Use conteúdo e assets fornecidos. Quando faltar algo essencial, crie um substituto honesto e claramente substituível, não um produto fictício copiado da referência.
+6. **Renderize cedo.** Verifique uma viewport representativa antes de polir detalhes; depois confira mobile e estados.
+7. **Faça uma segunda passada.** Corrija coerência cromática, ritmo, quebras, foco, reduced motion, overflow e detalhes genéricos.
+8. **Entregue o artefato e a evidência.** Aponte arquivos, direção escolhida e o que foi validado.
 
-- **Padrão: HTML único e completo** (CSS e JS embutidos), responsivo, pronto pra subir na infra do William (deploy estático GI). Motion em CSS/IntersectionObserver.
-- **Se o projeto já é React/Next:** componentes com Tailwind + Framer Motion, seguindo `references/motion.md`.
-- **Peça social (post/carrossel/Reel):** HTML na proporção certa (4:5, 1:1 ou 9:16) com um frame por "slide", pra ser capturado como imagem.
+## Como usar as referências
 
-## Checklist antes de entregar
+Extraia técnica, nunca conteúdo. Handles, paletas observadas e fichas de posts são evidência por trás dos tokens, não layouts para recriar. Não copie nome, copy, produto fictício, capa, sequência ou composição exata. Misture princípios em um cenário real e original.
 
-Percorra rápido; qualquer "não" volta pra prancheta:
+Resolva o corpus visual nesta ordem:
 
-- [ ] Um único acento vibrante? (conte os acentos, sério)
-- [ ] Herói flutuando com sombra difusa num palco limpo?
-- [ ] Ênfase do título feita por cor/peso, não por tamanho gigante?
-- [ ] Cantos arredondados consistentes e generosos?
-- [ ] CTA com estados de interação funcionando?
-- [ ] Zero travessão em qualquer texto?
-- [ ] Zero badge/pill acima do headline?
-- [ ] Fundo sem grid genérico, sem orbs de gradiente?
-- [ ] Copy concreta, sem palavras de hype?
-- [ ] Responsivo (mobile primeiro nas LPs)?
-- [ ] Parece um objeto desejável que alguém salvaria?
+1. referências anexadas ou indicadas pelo usuário;
+2. variável `DESIGN_DNA_REFERENCE_ROOT`;
+3. pasta irmã `../referencias-instagram/por-estilo/`;
+4. previews empacotados em `assets/` e as referências textuais.
+
+Não use caminhos absolutos fixos. A ausência do corpus externo não bloqueia a skill. Quando ele existir, inspecione no máximo 3 a 5 itens relevantes do registro selecionado; não carregue a biblioteca inteira. Para aprender novas referências, siga `references/reference-ingestion.md`.
+
+## Gramática visual global
+
+### Cor como sistema
+
+- Comece por uma base neutra e escolha **uma família de acento dominante que esteja realmente presente**.
+- Reserve o acento para CTA, dado, estado selecionado ou palavra-chave. Se tudo recebe acento, nada tem hierarquia.
+- Não use gradiente azul-roxo-rosa em texto. Gradiente tonal da mesma família pode criar profundidade fora do texto; em `apple-contained`, prefira zero gradiente.
+- Cores de `status` são exceções funcionais: vermelho para erro, verde para sucesso, amarelo para alerta. Mantenha-as locais, pequenas e semanticamente consistentes; não as repita como decoração.
+- Syntax highlight pode ser multicolorido dentro do bloco de código. Visualização de dados pode usar escala adicional quando a leitura exigir, mas a navegação e os CTAs continuam no acento dominante.
+- Em marca multicolorida, preserve a marca e eleja uma cor operacional para interação. As demais aparecem no logo ou em contextos justificados.
+
+### Tipografia e composição
+
+- Use hierarquia evidente por escala, peso, contraste e espaço. Cada registro decide qual desses fatores lidera.
+- Prefira headlines curtas, específicas e com uma ideia por bloco. Não quebre a clareza só para encaixar uma palavra colorida.
+- Crie um protagonista: produto, mockup, dado, interação ou composição editorial. Cards não são o protagonista por padrão.
+- Use assimetria controlada, bento com pesos reais e respiro. Três cards idênticos “ícone + título + texto” são fallback, não direção premium.
+- Use radius por função. Evite transformar todo texto, label e container em pill ou squircle.
+
+### Interação e motion
+
+- Toda ação importante deve revelar estado: hover/focus, active, loading, sucesso ou erro quando aplicável.
+- Motion explica relação, mudança de estado ou narrativa. Não anime para preencher vazio.
+- Use `prefers-reduced-motion`, foco visível, teclado e áreas de toque adequadas.
+- Evite bounce/spring em páginas contidas; use spring apenas quando materialidade e feedback justificarem.
+- Use glass localmente onde ele comunica camada, overlay ou foco. Mesmo quando o pedido exige vários cards glass, mantenha o restante da página sólido para o efeito não virar ruído.
+
+## Anti-slop por padrão
+
+Evite estes reflexos de design gerado por IA, salvo pedido explícito ou marca que os justifique:
+
+- badge, chip ou pill decorativo acima de todo headline;
+- orb roxo-azul, grid técnico ou dot-grid usado como fundo genérico;
+- gradiente multicolorido em texto;
+- CTA principal acompanhado de botão ghost sem função real;
+- fileira de três cards clones;
+- excesso de glass, glow, radius e sombras chamativas;
+- ícones emoji quando existe ícone consistente;
+- travessão `—` em copy nova gerada pela skill; a regra inclui `<title>`, metadata e texto acessível novos, mas conteúdo obrigatório ou já existente do usuário deve ser preservado até ele autorizar edição;
+- hotlink aleatório, foto stock genérica ou placeholder quando existe asset real;
+- números, logos, depoimentos, urgência ou prova social inventados.
+
+## Contrato por artefato
+
+### Web, React ou interface
+
+Entregue código executável na stack existente. Preserve comportamento, use semântica, responsividade e acessibilidade. Em HTML único, evite dependência externa além do que o usuário autorizar. Rode `python3 scripts/preflight.py <arquivo>` quando disponível e trate seus achados como sinais, não como substituto do render.
+
+### Peça estática, anúncio ou carrossel
+
+Confirme formato por contexto ou use dimensões padrão explícitas no artefato. Respeite safe areas, legibilidade em tela pequena e sequência narrativa. Entregue SVG/PNG/PDF ou fonte editável conforme o pedido; não devolva HTML se o usuário pediu uma imagem final.
+
+### Reel, GIF ou motion
+
+Defina duração, beats, loop, primeiro frame e fallback estático. Mostre resultado e técnica quando for conteúdo educativo. Não prometa vídeo renderizado se só entregou storyboard ou código.
+
+### Direção ou auditoria
+
+Entregue uma decisão acionável: diagnóstico por prioridade, direção recomendada, tokens, composição e amostra suficiente para provar a solução. No modo `audit`, não edite arquivos.
+
+## Glow Up
+
+1. Capture o estado atual em desktop e mobile quando houver renderizador.
+2. Liste problemas observáveis por impacto: objetivo/conversão, hierarquia, coerência, responsividade, acessibilidade e acabamento.
+3. Preserve marca, conteúdo e funcionalidades que funcionam. Separe correção de redesign.
+4. Se a direção for ambígua e cara de refazer, prove 2 ou 3 opções com o mesmo hero real; caso contrário, escolha, declare e implemente.
+5. Compare antes/depois e registre o que mudou. Não publique nem faça deploy sem pedido explícito.
+
+## Gate de qualidade antes de entregar
+
+Leia `references/quality-gates.md` em produção ou Glow Up e verifique:
+
+- objetivo e CTA continuam claros sem depender do efeito visual;
+- paleta segue papéis e exceções sem criar uma segunda identidade;
+- desktop e mobile não têm overflow, corte ou sobreposição;
+- teclado, foco, contraste, alt/labels e reduced motion estão cobertos;
+- estados interativos funcionam e não há erro de console;
+- assets e conteúdo são reais ou honestamente marcados;
+- a peça não copiou uma referência nem caiu nos padrões anti-slop;
+- o artefato abre, compila ou renderiza no formato prometido.
+
+Se não puder renderizar, diga isso na entrega e faça a inspeção de código disponível. Não alegue validação visual que não ocorreu.
+
+## Formato da resposta final
+
+Lidere com o resultado. Aponte os arquivos criados ou alterados, diga a direção escolhida em uma linha e resuma verificações reais. Evite recontar todo o processo.

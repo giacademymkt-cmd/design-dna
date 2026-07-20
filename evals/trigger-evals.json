@@ -1,0 +1,82 @@
+[
+  {
+    "query": "preciso criar a LP do novo programa Gestão de Times, já tenho a copy na pasta do projeto mas nenhuma direção visual. quero algo premium no meu estilo e pronto para mobile",
+    "should_trigger": true
+  },
+  {
+    "query": "dá um glow up nesse dashboard sem trocar os dados nem as cores da marca, está com cara de template e a hierarquia ficou ruim",
+    "should_trigger": true
+  },
+  {
+    "query": "faz um carrossel 1080x1080 de 6 slides ensinando esse conceito de UX, com antes/depois e um trecho de código real. capricha no design",
+    "should_trigger": true
+  },
+  {
+    "query": "quero uma página de produto bem Apple para o app Lume, com muito respiro, produto protagonista e motion bem sutil",
+    "should_trigger": true
+  },
+  {
+    "query": "audita o visual da home atual e me mostra os problemas por prioridade, mas por enquanto não altera os arquivos",
+    "should_trigger": true
+  },
+  {
+    "query": "alimente meu design DNA com essas 12 referências novas; separa o que é técnica do que seria cópia e registra a origem",
+    "should_trigger": true
+  },
+  {
+    "query": "cria o criativo 4:5 da campanha Imersão Gestão, fundo claro editorial, texto grande e CTA legível no celular",
+    "should_trigger": true
+  },
+  {
+    "query": "redesenha a PDP desse casaco mantendo fotos, preço e variantes, quero ecommerce premium e mais confiança no mobile",
+    "should_trigger": true
+  },
+  {
+    "query": "monta a apresentação visual de três telas desse app como um product flow, uma versão light e sem inventar conteúdo",
+    "should_trigger": true
+  },
+  {
+    "query": "esse componente React já funciona, mas quero refinar o visual, estados de loading e foco para ficar no meu padrão",
+    "should_trigger": true
+  },
+  {
+    "query": "o botão React está disparando duas requisições no onClick; corrige a lógica sem mudar o visual",
+    "should_trigger": false
+  },
+  {
+    "query": "crie um componente de serviço que valida CPF e retorna Result<T, Error>; não precisa de interface",
+    "should_trigger": false
+  },
+  {
+    "query": "meu app iOS fecha ao abrir o CoreNFC no iPhone 15, investiga o crash e ajusta o entitlement",
+    "should_trigger": false
+  },
+  {
+    "query": "a página premium está lenta. melhora o Lighthouse e o bundle sem alterar layout, CSS ou imagens",
+    "should_trigger": false
+  },
+  {
+    "query": "revise apenas a gramática e a pontuação da copy dessa landing page, não mexa no design nem no código",
+    "should_trigger": false
+  },
+  {
+    "query": "remova a pessoa ao fundo desta foto e aumente a resolução mantendo o enquadramento",
+    "should_trigger": false
+  },
+  {
+    "query": "implemente exatamente os componentes do nosso design system Atlas já aprovado; não proponha direção visual nova",
+    "should_trigger": false
+  },
+  {
+    "query": "gere um PRD para o futuro dashboard de operações, ainda não vamos decidir layout ou identidade visual",
+    "should_trigger": false
+  },
+  {
+    "query": "traduza os textos do site para espanhol preservando byte a byte o layout e os estilos atuais",
+    "should_trigger": false
+  },
+  {
+    "query": "configure a campanha no Meta Ads e traga o monitor de CPL por cidade; não preciso de criativos novos",
+    "should_trigger": false
+  }
+]

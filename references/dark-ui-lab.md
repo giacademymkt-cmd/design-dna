@@ -12,7 +12,7 @@ Familia dark-mode que reune tutorial e product-motion sobre fundo quase-preto. E
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/dark-ui-lab/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `dark-ui-lab/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Quando a fidelidade importar, inspecione 1 ou 2 itens antes de desenhar.
 
 ### 01 — @creative_vaani (pasta `01__creative_vaani__546270`)
 Tutorial em carrossel (7 slides) ensinando a recriar o novo efeito Glass (vidro fosco) do Figma, com capa de icones 3D coloridos e slides passo a passo mostrando frames, gradientes, painel Glass Beta e configuracoes de sombra.
