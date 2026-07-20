@@ -12,7 +12,7 @@ Familia dominante do perfil code.xr: reels educativos de front-end no formato 9:
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/dev-tutorial-code-showcase/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `dev-tutorial-code-showcase/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Este lote é composto por vídeos; quando a fidelidade importar, inspecione 1 ou 2 clipes e seus estados principais antes de desenhar.
 
 ### 01 — @code.xr (pasta `01__code.xr__041023`)
 Reel educativo de dev front-end que demonstra uma animacao de upload de arquivo feita com Framer Motion. A metade de cima mostra o componente UI animado (input com Document.pdf, botao Upload que vira estado Uploading), e a metade de baixo mostra o snippet de codigo em um cartao de editor escuro.

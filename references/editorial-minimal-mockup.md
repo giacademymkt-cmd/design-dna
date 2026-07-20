@@ -12,7 +12,7 @@ Assinatura do rondesignlab: apresentacao de UI concepts (healthtech, logistica, 
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/editorial-minimal-mockup/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `editorial-minimal-mockup/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Quando a fidelidade importar, inspecione 1 ou 2 itens antes de desenhar.
 
 ### 01 — @rondesignlab (pasta `01__rondesignlab__539897`)
 Carrossel de UI concept para "Superpower", um dashboard de saude/longevidade. Mostra o painel completo (score, idade biologica, biomarcadores, suplementos) em varios crops em perspectiva 3D sobre mockups de monitor/tablet, com capa final de marca "Save this design".

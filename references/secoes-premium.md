@@ -2,6 +2,16 @@
 
 Registro de como os sites mais bem desenhados do mundo (Linear, Stripe, Vercel, Raycast, Apple) estruturam os blocos que toda página de produto precisa: abertura, prova social, oferta, fechamento e transição de conteúdo. Leia isto antes de desenhar qualquer seção de uma LP ou página de produto, quando a dúvida for mais estrutural que estética: quanto de largura o visual do hero ocupa, quantas colunas o footer aguenta, como destacar um plano sem parecer propaganda. Cada padrão já vem com o esqueleto de código pronto para colar e adaptar.
 
+## Sumário
+
+- [Hero Editorial com Aceno de Produto](#hero-editorial-com-aceno-de-produto)
+- [Faixa de Logos em Movimento Contínuo](#faixa-de-logos-em-movimento-contínuo-prova-social)
+- [Cartão Central Elevado](#cartão-central-elevado-pricing-sem-badge-gritante)
+- [Footer em Grade Densa e Silenciosa](#footer-em-grade-densa-e-silenciosa)
+- [Capítulo Fixo com Texto Trocado](#capítulo-fixo-com-texto-trocado-scroll-storytelling)
+- [Vazio Discreto](#vazio-discreto-empty-state)
+- [Regra de montagem](#regra-de-montagem)
+
 ### Hero Editorial com Aceno de Produto
 
 **De onde veio:** Linear, Stripe, Raycast.

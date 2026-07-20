@@ -13,7 +13,7 @@ Formato de carrossel educativo quadrado para dev/design: slides numerados com ba
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/dev-carousel-explainer/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `dev-carousel-explainer/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Quando a fidelidade importar, inspecione 1 ou 2 itens antes de desenhar.
 
 ### 01: @flutter.developer.dart (pasta `01__flutter.developer.dart__188192`)
 

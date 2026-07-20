@@ -12,7 +12,7 @@ Sistema serializado do iconlypro: carrosseis claros de showcase de UI e icones e
 
 ## Referências visuais
 
-Imagens originais em `/Users/williamwrage/Desenvolvimento/DESIGN CLAUDE/referencias-instagram/por-estilo/soft-neumorphism-light/`. Quando a fidelidade importa, leia 1-2 imagens de um post antes de desenhar.
+Corpus externo: resolva `soft-neumorphism-light/` pela variável `DESIGN_DNA_REFERENCE_ROOT` ou pela pasta irmã documentada em `reference-ingestion.md`. Quando a fidelidade importar, inspecione 1 ou 2 itens antes de desenhar.
 
 ### 01: @iconlypro (pasta `01__iconlypro__186787`)
 Carrossel educacional Part 3 com 10 ideias de navegacao mobile (bottom nav / floating action bars) para diferentes tipos de app: crypto, messenger, cloud storage, coffee machine, task, financial, VPN, news, football, social. Capa com titulo grande e slide final de branding do produto Iconly (biblioteca de 40.000+ icones).

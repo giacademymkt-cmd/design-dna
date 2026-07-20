@@ -1,0 +1,81 @@
+version: 2
+name: design-dna
+
+precedence:
+  - user_request_brand_and_real_assets
+  - accessibility_and_interaction_integrity
+  - function_content_and_conversion
+  - selected_aesthetic_and_format
+  - global_defaults
+
+modes:
+  build: production artifact plus QA
+  glow-up: diagnose preserve implement compare
+  audit: read-only evidence and priorities
+  concept: low-cost direction sample
+  ingest: reference extraction and library maintenance
+
+aesthetics:
+  soft-light:
+    reference: soft-neumorphism-light.md
+    preview: ../assets/style-light.png
+    default_base: "#ECECEE"
+    default_accent: "#2C5FF6"
+  dark-technical:
+    reference: dark-ui-lab.md
+    preview: ../assets/style-dark.png
+    default_base: "#0A0C0F"
+    default_accent: "#2BD9B4"
+  apple-contained:
+    reference: apple-premium.md
+    preview: ../assets/style-apple.png
+    default_base: "#F5F5F7"
+    default_accent: "#0071E3"
+  editorial-signal:
+    reference: editorial-minimal-mockup.md
+    preview: ../assets/style-editorial.png
+    default_base: "#EDECEA"
+    default_accent: "#D9F500"
+
+formats:
+  product-flow:
+    reference: app-flow-showcase.md
+    preview: ../assets/style-appflow.png
+  demo-code:
+    reference: dev-tutorial-code-showcase.md
+    preview: ../assets/style-devtutorial.png
+  explainer-carousel:
+    reference: dev-carousel-explainer.md
+    preview: ../assets/style-carousel.png
+
+color_roles:
+  accent: one dominant family for CTA selection and visual signal
+  accent-foreground: contrasting text or icon on accent surfaces
+  status.error: scoped semantic error color
+  status.error-foreground: contrasting content on error surfaces
+  status.success: scoped semantic success color
+  status.success-foreground: contrasting content on success surfaces
+  status.warning: scoped semantic warning color
+  status.warning-foreground: contrasting content on warning surfaces
+  status.info: scoped semantic information color
+  status.info-foreground: contrasting content on information surfaces
+  focus-ring: keyboard focus color with sufficient contrast against adjacent surfaces
+  syntax: multicolor allowed only inside code representation
+  data: extra scale allowed only when required for interpretation
+  brand: preserve supplied brand colors and elect one operational accent
+
+exceptions:
+  multicolor_text_gradient: forbidden_by_default
+  semantic_status_colors: allowed_when_scoped
+  syntax_highlight: allowed_inside_code_only
+  data_visualization_palette: allowed_when_reading_requires_it
+  repeated_glass: allowed_when_explicitly_requested_but_confined_to_one_region
+  real_product_photography: preferred_when_available
+
+corpus_resolution:
+  base: skill_root
+  order:
+    - user_supplied_path
+    - env:DESIGN_DNA_REFERENCE_ROOT
+    - ../referencias-instagram/por-estilo
+    - ../assets

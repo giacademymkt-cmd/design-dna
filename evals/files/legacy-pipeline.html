@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipeline Comercial</title>
+  <style>
+    :root { --brand-blue: #1769ff; --brand-orange: #ff7b22; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 14px Arial, sans-serif; color: #222; background: #f5f5f5; }
+    header { display: flex; justify-content: space-between; padding: 16px 22px; background: var(--brand-blue); color: white; }
+    main { padding: 24px; }
+    .badge { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #fff2e9; color: #a84600; }
+    h1 { margin: 10px 0 24px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .metric { padding: 18px; border-radius: 18px; background: white; box-shadow: 0 8px 30px #0000000d; }
+    .metric strong { display: block; margin-top: 8px; font-size: 26px; }
+    button { border: 0; border-radius: 999px; padding: 10px 16px; background: var(--brand-orange); color: white; cursor: pointer; }
+    table { width: 100%; margin-top: 20px; border-collapse: collapse; background: white; }
+    th, td { padding: 14px; border-bottom: 1px solid #eee; text-align: left; }
+    .compact th, .compact td { padding: 7px 14px; }
+  </style>
+</head>
+<body>
+  <header><strong>GI Vendas</strong><button id="compact">Modo compacto</button></header>
+  <main>
+    <span class="badge">Visão do pipeline</span>
+    <h1>Pipeline Comercial</h1>
+    <section class="metrics">
+      <div class="metric">Oportunidades<strong>48</strong></div>
+      <div class="metric">Valor em aberto<strong>R$ 286.400</strong></div>
+      <div class="metric">Conversão<strong>31%</strong></div>
+    </section>
+    <table id="pipeline">
+      <thead><tr><th>Empresa</th><th>Etapa</th><th>Valor</th><th>Responsável</th></tr></thead>
+      <tbody>
+        <tr><td>Serra Norte</td><td>Diagnóstico</td><td>R$ 42.000</td><td>Ana</td></tr>
+        <tr><td>Clínica Horizonte</td><td>Proposta</td><td>R$ 28.500</td><td>Bruno</td></tr>
+        <tr><td>Atlas Log</td><td>Negociação</td><td>R$ 76.000</td><td>Carla</td></tr>
+        <tr><td>Viva Sul</td><td>Qualificação</td><td>R$ 19.900</td><td>Diego</td></tr>
+      </tbody>
+    </table>
+  </main>
+  <script>
+    document.querySelector('#compact').addEventListener('click', () => {
+      document.querySelector('#pipeline').classList.toggle('compact');
+    });
+  </script>
+</body>
+</html>

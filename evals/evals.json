@@ -5,69 +5,184 @@
       "id": 0,
       "eval_name": "lp-saas-fintech",
       "prompt": "cria uma landing page pra um SaaS de gestão financeira pra pequenas empresas chamado FluxoCerto. precisa ter hero, 3 features, uma faixa de prova social e pricing com 2 planos (Essencial R$97/mês e Pro R$197/mês). capricha no design, quero coisa premium. entrega um HTML único pronto pra eu subir no servidor",
-      "expected_output": "HTML único autocontido, estilo editorial-minimal-mockup: base off-white, cards bento super-arredondados, um acento (lime/neon) usado como sinal, herói flutuante com sombra difusa, hierarquia por cor, CTA com estados, responsivo, zero travessão, zero slop (sem badge acima do headline, sem grid de fundo, features sem três cards idênticos)",
+      "expected_output": "HTML autocontido com direção editorial-signal: base off-white, composição bento assimétrica, acento presente como sinal de dado, produto financeiro protagonista, CTA com estados, responsividade, acessibilidade básica e zero slop.",
       "files": [],
-      "assertions": [
-        "HTML autocontido: sem <img src=http externo e sem scripts de CDN (única exceção permitida: Google Fonts)",
-        "Zero caractere de travessão (—) em qualquer texto do arquivo",
-        "Base neutra off-white do DNA (fundo geral em tom #ECECEE/#EDECEA/#F4F4F2 ou muito próximo), não branco puro nem cinza médio",
-        "Ênfase do título do hero feita por cor: pelo menos uma palavra do headline envolta em span/classe com cor de acento",
-        "CTA com estados de interação: regras :hover e :active (ou equivalente JS) para os botões principais",
-        "Responsivo: meta viewport presente + pelo menos uma media query",
-        "Disciplina de acento: uma única família de cor vibrante de destaque na peça (grader avalia o CSS e a renderização)",
-        "Nenhum badge/chip/pill decorativo acima do headline do hero",
-        "Seção de features NÃO é três cards idênticos icon-título-texto: há variação de peso/tamanho (bento) ou um card protagonista"
+      "expectations": [
+        "HTML autocontido: sem imagem remota nem script de CDN; Google Fonts é a única exceção permitida",
+        "Nenhum caractere de travessão U+2014 aparece em conteúdo, title, metadata ou texto acessível",
+        "A base geral é perceptualmente off-white ou greige claro, não branco puro nem cinza médio",
+        "Existe uma família de acento vibrante claramente presente e dominante nos sinais de interação ou dados",
+        "Não existe gradiente multicolorido aplicado a texto",
+        "Os CTAs principais têm estados hover, focus-visible e active",
+        "A página inclui meta viewport e tratamento responsivo real para pelo menos uma largura mobile",
+        "Nenhum badge, chip ou pill decorativo aparece acima do h1 do hero",
+        "As três features têm hierarquia visual e de conteúdo diferente; apenas alterar grid-span sem mudar peso ou composição não satisfaz",
+        "Hero, prova social e pricing com os dois preços pedidos estão presentes sem inventar depoimentos ou números adicionais"
       ]
     },
     {
       "id": 1,
       "eval_name": "pagina-download-app",
       "prompt": "faz a página de download do meu app desktop de organização de arquivos (chama Kanvo, tem versão Mac e Windows). o botão de download precisa ter aquela microinteração completa: clica, vira barra de progresso e termina num checkmark de sucesso. quero a página completa, HTML único pronto pra subir",
-      "expected_output": "Página web real de download (não post social): hero com o app como objeto desejável, botão de download com state machine idle → progresso → checkmark transferida do DNA pra contexto de produto real, um acento disciplinado, base neutra do polo escolhido, zero slop, responsiva, zero travessão",
+      "expected_output": "Página web real de download com produto protagonista e state machine idle → progresso → sucesso; não um frame social. Deve oferecer Mac e Windows, manter uma identidade cromática, cobrir teclado e reduced motion e ser pronta para publicar.",
       "files": [],
-      "assertions": [
-        "É uma página web completa (nav ou marca + hero + pelo menos mais uma seção), não um frame 9:16 de post social",
-        "Animação funcional do botão de download em JS/CSS: estado idle, progresso e finalização com checkmark",
-        "Oferece as duas plataformas (Mac e Windows) de forma clara",
-        "Nenhum badge/chip/pill decorativo acima do headline do hero",
-        "Sem grid quadriculado/dot-grid como textura de fundo",
-        "Um único acento vibrante na peça, usado com disciplina",
-        "Responsivo: meta viewport presente + pelo menos uma media query",
-        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      "expectations": [
+        "É uma página completa com marca ou nav, hero e pelo menos mais uma seção",
+        "O botão executa estados funcionais idle, progresso e sucesso com checkmark",
+        "Mac e Windows estão disponíveis de forma clara",
+        "Nenhum badge, chip ou pill decorativo aparece acima do h1",
+        "Não existe grid quadriculado ou dot-grid como fundo decorativo",
+        "Uma família de acento está presente e domina a interface; cores semânticas locais de sucesso não contam como segunda identidade",
+        "Não existe gradiente multicolorido aplicado a texto",
+        "Meta viewport e tratamento mobile estão presentes",
+        "O controle principal funciona por teclado e tem focus-visible perceptível",
+        "Motion tem fallback ou redução para prefers-reduced-motion",
+        "Nenhum caractere de travessão U+2014 aparece no arquivo"
       ]
     },
     {
       "id": 2,
       "eval_name": "secao-dark-glass-features",
       "prompt": "faz uma seção dark de features pra página do meu produto de automação de anúncios (chama AdPilot), com 3 cards em glassmorphism e um bloco comparativo antes vs depois. HTML único",
-      "expected_output": "HTML estilo dark-ui-lab: fundo quase-preto LISO (sem grid), cards glass translúcidos (backdrop-filter) com pesos variados, UM acento luminoso (teal/menta), rótulos pill pro comparativo (tipo BROKEN vs SAFE), respiro generoso, hover states nos cards, zero badge acima do headline, zero travessão",
+      "expected_output": "Seção dark-technical com fundo perceptualmente quase-preto e liso, região de três cards glass pedida pelo usuário, pesos visuais diferentes, um acento luminoso dominante e comparação semântica antes/depois.",
       "files": [],
-      "assertions": [
-        "Fundo quase-preto do DNA (na faixa #0A0C0F a #161A1F), não cinza escuro médio",
-        "Fundo LISO: sem grid quadriculado/dot-grid cobrindo o background (vinheta sutil, gradiente direcional único ou noise fino são aceitáveis)",
-        "Nenhum badge/chip/pill decorativo acima do headline da seção",
-        "Glassmorphism real nos 3 cards: backdrop-filter blur com fundo translúcido",
-        "Um único acento luminoso (teal/menta/azul) usado com disciplina em CTA/dados",
-        "Bloco comparativo antes vs depois com rótulos estilo pill em caps",
-        "Estados hover nos cards (transform/borda/glow ao passar o mouse)",
-        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      "expectations": [
+        "O fundo principal é perceptualmente quase-preto, sem exigir um hex exato",
+        "Não existe grid quadriculado ou dot-grid cobrindo o background",
+        "Nenhum badge, chip ou pill decorativo aparece acima do headline",
+        "Os três cards pedidos usam transparência e backdrop-filter; o glass fica confinado a essa região em vez de dominar toda a página",
+        "Os cards têm pesos ou composições visualmente diferentes, não três clones",
+        "Uma família de acento teal, menta ou azul está presente e domina CTA e dados",
+        "O comparativo antes/depois usa vermelho e verde apenas como cores semânticas locais e rótulos claros",
+        "Cards têm hover e focus-visible ou comportamento equivalente para teclado",
+        "Motion respeita prefers-reduced-motion quando houver transformação ou animação",
+        "Nenhum caractere de travessão U+2014 aparece no arquivo"
       ]
     },
     {
       "id": 3,
       "eval_name": "pagina-produto-apple-premium",
       "prompt": "quero uma página de apresentação pro meu app de finanças pessoais (chama Lume) num estilo bem apple sabe, extremamente refinado, minimalista e premium, tipo página de produto da apple. HTML único",
-      "expected_output": "Página estilo apple-premium: tipografia protagonista (headlines grandes com tracking negativo), base branco/#F5F5F7/#1D1D1F, um único acento discreto (azul tipo #0071E3), seções-capítulo com respiro vertical imenso, CTA pill, link 'Saiba mais >' com chevron, frases curtas declarativas, reveal sutil no scroll sem bounce, zero slop, zero travessão",
+      "expected_output": "Página apple-contained com tipografia protagonista, capítulos amplos, base neutra, um acento operacional discreto, produto como herói, copy declarativa e motion mínimo e acessível.",
       "files": [],
-      "assertions": [
-        "Tipografia protagonista: headline principal com font-weight >= 600 e letter-spacing negativo",
-        "Paleta contida: base neutra (branco/#F5F5F7/#1D1D1F ou tons equivalentes) com no máximo UMA cor de acento discreta na página inteira",
-        "Respiro de luxo: padding vertical das seções >= 96px no desktop",
-        "CTA em formato pill (border-radius alto) preenchido, sem botão ghost pareado por reflexo",
-        "Nenhum badge/chip/pill decorativo acima do headline; sem grid de fundo; sem orbs/gradiente decorativo roxo-azul",
-        "Copy declarativa: headline do hero com no máximo 8 palavras",
-        "Reveal sutil no scroll (IntersectionObserver ou CSS) com easing suave, sem spring/bounce",
-        "Zero caractere de travessão (—) em qualquer texto do arquivo"
+      "expectations": [
+        "Headline principal usa peso pelo menos 600 e letter-spacing negativo",
+        "A página usa base neutra branca, pérola e/ou quase-preta com uma única família operacional de acento",
+        "Não existe gradiente multicolorido aplicado a texto",
+        "Seções principais têm pelo menos 96px de respiro vertical no desktop",
+        "CTA principal é preenchido e pill; um link secundário pode existir, mas não como botão ghost reflexo",
+        "Nenhum badge, chip ou pill decorativo aparece acima do h1",
+        "Não existe grid decorativo no fundo",
+        "Não existem orbs ou glows roxo-azul usados como decoração",
+        "Headline do hero tem no máximo oito palavras",
+        "Reveal é sutil, sem bounce ou spring, e respeita prefers-reduced-motion",
+        "Nenhum caractere de travessão U+2014 aparece no arquivo"
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "glow-up-dashboard-legado",
+      "prompt": "faz um glow up nesse dashboard de pipeline. preserva a marca azul e laranja, todos os textos, os números da tabela e o botão que alterna o modo compacto. melhora hierarquia, responsividade e acessibilidade, mas não inventa dados. entrega uma cópia HTML nova e não altera o arquivo original.",
+      "expected_output": "Cópia redesenhada do dashboard, preservando conteúdo, cores de marca e comportamento, com direção mais clara, estados acessíveis, layout responsivo e evidência de antes/depois.",
+      "files": [
+        "evals/files/legacy-pipeline.html"
+      ],
+      "expectations": [
+        "O arquivo de entrada permanece inalterado e um novo HTML é criado",
+        "Todos os nomes, números e estágios originais da tabela são preservados sem dados inventados",
+        "O botão de modo compacto continua alternando uma mudança observável",
+        "Azul e laranja da marca são preservados, com uma cor operacional dominante e a outra usada de forma controlada",
+        "A hierarquia de título, métricas e tabela melhora sem esconder conteúdo",
+        "Tabela e controles têm nomes semânticos ou acessíveis e focus-visible",
+        "A página é utilizável em mobile sem overflow destrutivo",
+        "Não existe badge decorativo acima do h1, grid genérico, orb ou gradiente multicolorido em texto",
+        "A entrega diferencia o que foi preservado do que foi alterado"
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "pdp-moda-premium",
+      "prompt": "cria uma página de produto completa para o casaco Manto Aurora. preço R$ 689, cores Areia e Grafite, tamanhos PP ao GG, estoque baixo só no tamanho M Grafite, frete calculado por CEP e troca grátis em 30 dias. quero ecommerce premium, mobile first, HTML único sem inventar avaliações.",
+      "expected_output": "PDP premium e mobile-first com produto protagonista, seleção acessível de cor e tamanho, estoque e frete visíveis, CTA claro, confiança sem prova falsa e conteúdo comercial completo.",
+      "files": [],
+      "expectations": [
+        "Nome Manto Aurora e preço R$ 689 aparecem de forma principal",
+        "Cores Areia e Grafite e tamanhos PP, P, M, G e GG são selecionáveis com estado acessível",
+        "Estoque baixo é associado somente a M Grafite e não vira urgência global falsa",
+        "Cálculo de frete por CEP e troca grátis em 30 dias estão visíveis antes da compra",
+        "Não há avaliações, depoimentos, contagens de compradores ou selos inventados",
+        "Imagem ou ilustração do produto é autocontida, honesta e não usa hotlink stock aleatório",
+        "CTA de compra tem estado focus-visible, disabled quando a seleção estiver incompleta e feedback ao adicionar",
+        "Layout é mobile-first e mantém CTA e informação essencial utilizáveis em 390px",
+        "Uma direção estética coerente domina sem esconder preço, estoque ou prazo atrás de interação"
+      ]
+    },
+    {
+      "id": 6,
+      "eval_name": "dashboard-status-semantico",
+      "prompt": "monta um dashboard operacional para a transportadora RotaSul. a marca usa azul #135DFF e laranja #FF7A1A. preciso de KPIs, uma tabela de 6 entregas e status no prazo, atrasado e em risco. pode usar verde, vermelho e amarelo para os status, mas não quero carnaval. HTML único responsivo.",
+      "expected_output": "Dashboard denso e legível que preserva azul e laranja da marca, elege uma cor operacional, confina cores semânticas aos status e mantém tabela, filtros e foco acessíveis.",
+      "files": [],
+      "expectations": [
+        "Azul #135DFF e laranja #FF7A1A da marca aparecem sem competir em todos os componentes",
+        "Verde, vermelho e amarelo são usados somente para status ou alertas, não como decoração geral",
+        "KPIs e tabela com exatamente seis entregas estão presentes",
+        "Estados no prazo, atrasado e em risco têm texto ou ícone além da cor",
+        "Tabela mantém leitura ou oferece transformação acessível em mobile",
+        "Filtros e controles funcionam por teclado e têm focus-visible",
+        "Pills são reservadas aos status; títulos e labels comuns não viram chips",
+        "Não existe gradiente multicolorido em texto, grid de fundo genérico ou fileira de KPIs visualmente indistinguíveis"
+      ]
+    },
+    {
+      "id": 7,
+      "eval_name": "react-settings-accessible",
+      "prompt": "cria um componente React de configurações de notificações para meu SaaS dark chamado Nexo. tem email, push e WhatsApp, cada canal com toggle e resumo; salvar precisa ter loading, sucesso e erro simulado. entrega SettingsPanel.tsx e CSS sem instalar biblioteca nova.",
+      "expected_output": "Componente React dark-technical autocontido na stack pedida, com toggles acessíveis, estados de salvamento, hierarquia clara, um acento dominante e motion reduzível.",
+      "files": [],
+      "expectations": [
+        "Entrega SettingsPanel.tsx e um arquivo de estilos sem adicionar dependência externa",
+        "Email, push e WhatsApp têm toggle com nome acessível e estado controlado",
+        "Salvar implementa estados idle, loading, sucesso e erro simulado",
+        "Feedback de sucesso e erro não depende apenas de cor e é anunciável",
+        "Direção dark usa base quase-preta e uma família operacional de acento; verde e vermelho ficam confinados aos feedbacks",
+        "Teclado e focus-visible cobrem toggles e botão",
+        "Motion ou transições respeitam prefers-reduced-motion",
+        "Não há badge reflexo acima do título, grid genérico ou gradiente multicolorido em texto"
+      ]
+    },
+    {
+      "id": 8,
+      "eval_name": "criativo-social-svg",
+      "prompt": "faz um criativo estático 1080x1350 em SVG para a Imersão Gestão 2026. texto obrigatório: 'Lidere com clareza', '18 e 19 de setembro', 'Hotel Serra Azul, Gramado' e CTA 'Garanta sua vaga'. direção editorial premium, fundo claro, azul cobalto como acento. entrega o SVG final, não HTML.",
+      "expected_output": "SVG 1080x1350 final e legível, com direção editorial, hierarquia forte, conteúdo obrigatório, safe area, azul cobalto como único acento e sem elementos genéricos de IA.",
+      "files": [],
+      "expectations": [
+        "Entrega um arquivo SVG com width 1080, height 1350 e viewBox correspondente; não entrega HTML como artefato principal",
+        "Os quatro textos obrigatórios aparecem exatamente no SVG",
+        "Headline é o elemento tipográfico dominante e data, local e CTA têm hierarquia clara",
+        "Elementos importantes respeitam margem segura de pelo menos 64px nas bordas",
+        "Base clara e azul cobalto formam a identidade sem segunda família vibrante decorativa",
+        "Não há badge decorativo acima da headline, orb, grid genérico, emoji ou gradiente multicolorido em texto",
+        "O SVG não depende de imagem remota nem fonte externa para renderizar o conteúdo essencial",
+        "O resultado é uma peça final, não wireframe ou descrição textual"
+      ]
+    },
+    {
+      "id": 9,
+      "eval_name": "motion-scroll-acessivel",
+      "prompt": "cria uma seção de storytelling para o app de hábitos Orbit com 3 capítulos: planeje, execute e revise. no desktop o mockup fica preso enquanto o texto muda; no mobile vira fluxo normal. quero HTML único, motion premium mas acessível.",
+      "expected_output": "Seção de scroll storytelling com pin apenas quando apropriado, três capítulos claros, fallback mobile, reduced motion real, performance controlada e direção visual coerente.",
+      "files": [],
+      "expectations": [
+        "Os capítulos planeje, execute e revise estão presentes e associados a estados visuais distintos",
+        "Desktop usa pin ou sticky de forma funcional sem esconder conteúdo",
+        "Mobile desativa o pin e mantém todos os capítulos em fluxo legível",
+        "prefers-reduced-motion remove o comportamento de scroll animado em CSS e em JavaScript quando houver loop",
+        "Listeners de scroll são passive ou o efeito usa IntersectionObserver/ScrollTimeline sem loop permanente fora da viewport",
+        "Conteúdo essencial não depende da animação para existir no DOM",
+        "Teclado, links de âncora e foco não ficam presos pelo storytelling",
+        "Uma família de acento domina e não há grid genérico, badge reflexo ou gradiente multicolorido em texto"
       ]
     }
   ]
